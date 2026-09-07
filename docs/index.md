@@ -9,7 +9,7 @@ hero:
       link: /storage/nandflash/terminology
     - theme: alt
       text: View on GitHub
-      link: https://github.com/your-username/your-repo-name
+      link: https://github.com/FourierDrive/Repo
 
 features:
   - title: NAND Flash Architecture
