@@ -17,7 +17,7 @@ export default {
               collapsed: false,
               items: [
                 { text: 'Terminology', link: '/storage/nandflash/terminology' },
-                { text: 'Controller Interface', link: '/storage/nandflash/controller' },
+                { text: 'Controller Interface', link: '/storage/nandflash/controller_interface' },
                 { text: 'Operations', link: '/storage/nandflash/operations' },
                 { text: 'Management', link: '/storage/nandflash/management' }
               ]
