@@ -3,15 +3,19 @@
 The Flash Controller IP represents the internal MCU peripheral logic responsible for translating host register commands into raw physical pin signaling across the SPI/QSPI bus.
 
 ## Command Dispatch
+
 Initiating hardware tasks via control registers. The processor configures the internal IP controller registers to orchestrate SPI timing sequences, sending specific hardware command codes (such as 02h for Page Program or 0Fh for Get Feature) directly to the external chip.
 
 ## Hardware Busy State
+
 Microscopic blocking on the internal peripheral bus. The controller register tracks the active transmission status of the physical serial lines via internal flags. The processor must block or wait until the controller finishes pumping serial bits down the wire.
 
 ## Operation In Progress (OIP)
+
 Macroscopic tracking of external silicon execution. While the controller IP becomes free quickly after delivering a command, the external flash chip remains busy for milliseconds executing high-voltage physical erasure or program execution. The software must poll the OIP bit in the external chip status register.
 
 ## TX/RX FIFO Management
+
 Buffer-based serial data flow. The controller utilizes internal hardware FIFOs (First-In, First-Out) to decouple the processor from the serial clock domain. Data to be programmed is written into the TX FIFO, while incoming read data is captured in the RX FIFO. The driver must monitor FIFO status flags (e.g., threshold, empty, or full) to prevent underflow or overflow during high-speed burst transfers.
 
 ## SPI/QSPI Modes
