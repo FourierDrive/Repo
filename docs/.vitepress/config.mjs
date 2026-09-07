@@ -1,7 +1,7 @@
 export default {
   title: 'Flash Technical Knowledge Base',
   description: 'Embedded storage and low-level Flash development guide',
-  base: '/Drive/',
+  base: '/Repo/',
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
