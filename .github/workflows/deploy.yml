@@ -2,9 +2,7 @@ name: Deploy VitePress site to Pages
 
 on:
   push:
-.github/workflows/deploy.yml
-
-	branches: [main]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -27,7 +25,7 @@ jobs:
         with:
           node-version: 20
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Install dependencies
         run: npm install
       - name: Build with VitePress
