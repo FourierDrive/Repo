@@ -1,16 +1,15 @@
 export default {
-  title: 'Flash Technical Knowledge Base',
-  description: 'Embedded storage and low-level Flash development guide',
+  title: 'Repo',
+  description: 'Embedded development guide',
   base: '/Repo/',
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Storage Guide', link: '/storage/nandflash/terminology' }
     ],
     sidebar: {
       '/storage/': [
         {
-          text: 'Storage Architecture',
+          text: 'Storage',
           items: [
             {
               text: 'NAND Flash',
