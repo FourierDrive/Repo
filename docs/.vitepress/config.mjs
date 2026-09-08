@@ -36,7 +36,7 @@ export default {
               collapsed: true,
               items: [
                 { text: 'Background', link: '/storage/mmc/background' },
-                { text: 'Features', link: '/storage/mmc/feature' },
+                { text: 'Features', link: '/storage/mmc/features' },
                 { text: 'Standard', link: '/storage/mmc/standard' },
                 { text: 'Model', link: '/storage/mmc/model' },
                 { text: 'Physical Characteristics', link: '/storage/mmc/physical_characteristics' },
