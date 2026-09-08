@@ -46,6 +46,23 @@ export default {
                 { text: 'Common Responses', link: '/storage/mmc/common_responses' },                
                 { text: 'Operation Workflow', link: '/storage/mmc/operation_workflow' }
               ]
+            },
+            {
+              text: 'Secure Digital Card',
+              collapsed: true,
+              items: [
+                { text: 'Background', link: '/storage/sd/background' },
+                { text: 'Features', link: '/storage/sd/features' },
+                { text: 'Standard', link: '/storage/sd/standard' },
+                { text: 'Model', link: '/storage/sd/model' },
+                { text: 'Physical Characteristics', link: '/storage/sd/physical_characteristics' },
+                { text: 'Electrical Characteristics', link: '/storage/sd/electrical_characteristics' },
+                { text: 'Bus Protocol', link: '/storage/sd/bus_protocol' },
+                { text: 'Common Commands', link: '/storage/sd/common_commands' },
+                { text: 'Common Responses', link: '/storage/sd/common_responses' },                
+                { text: 'Storage Card Operation Flow', link: '/storage/sd/storage_card_operation_flow' },
+                { text: 'I/O Card Operation Flow', link: '/storage/sd/io_card_operation_flow' }
+              ]
             }
           ]
         }
