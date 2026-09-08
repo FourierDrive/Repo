@@ -30,6 +30,22 @@ export default {
               items: [
                 { text: 'Terminology', link: '/storage/norflash/terminology' }
               ]
+            },
+            {
+              text: 'Multi-Media Card',
+              collapsed: true,
+              items: [
+                { text: 'Background', link: '/storage/mmc/background' },
+                { text: 'Features', link: '/storage/mmc/feature' },
+                { text: 'Standard', link: '/storage/mmc/standard' },
+                { text: 'Model', link: '/storage/mmc/model' },
+                { text: 'Physical Characteristics', link: '/storage/mmc/physical_characteristics' },
+                { text: 'Electrical Characteristics', link: '/storage/mmc/electrical_characteristics' },
+                { text: 'Bus Protocol', link: '/storage/mmc/bus_protocol' },
+                { text: 'Common Commands', link: '/storage/mmc/common_commands' },
+                { text: 'Common Responses', link: '/storage/mmc/common_responses' },                
+                { text: 'Operation Workflow', link: '/storage/mmc/operation_workflow' }
+              ]
             }
           ]
         }
