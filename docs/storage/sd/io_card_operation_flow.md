@@ -49,6 +49,6 @@ The overall state transition and bus operation flow are illustrated below:
 
 ![SDIO Bus State Diagram](./assets/io_card_operation_flow_4.png)
 
-* **Identification Phase**: Upon power-up, cards start in the **Idle State** (under the card identification mode). Through commands such as `CMD5`, `CMD11`, and `CMD3`, the host negotiates voltage levels, assigns Relative Card Addresses (RCA), and transitions the card into the **Stand-by State**.
-* **Transfer Phase**: Once a card's RCA is assigned, the host uses `CMD7` to select the target device, moving it from the Stand-by State into the **Transfer State**. In this mode, full point-to-point communication—including register accesses via `CMD52` and block data streaming via `CMD53` takes place.
+* **Identification Phase**: Upon power-up, cards start in the **Idle State** (under the card identification mode). Through commands such as `CMD5`, `CMD11`, and `CMD3`, the host negotiates voltage levels, assigns RCA, and transitions the card into the **Standby State**.
+* **Transfer Phase**: Once a card's RCA is assigned, the host uses `CMD7` to select the target device, moving it from the Stand-by State into the **Transfer State**. In this mode, full point-to-point communication including register accesses via `CMD52` and block data streaming via `CMD53` takes place.
 * **Busy Handling & Exceptions**: During internal programming or write operations, cards may signal a busy status via the `DAT0` line. Furthermore, error handling, resets (`CMD0`), or deselection (`CMD7`) can route cards back to idle or standby modes as defined by the physical layer specification.
