@@ -1,4 +1,4 @@
-# I/O Card Operation Flow
+# I/O Card Operation Workflow
 
 During communication between the host and the card, they may be in different modes and states. The entire process can be divided into the **device identification phase** and the **data transfer phase**.
 
