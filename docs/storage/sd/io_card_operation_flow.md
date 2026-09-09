@@ -14,7 +14,7 @@ The overall organization of the SDIO internal register space and functional area
 
 ![SDIO card register structure](./assets/io_card_operation_flow_1.png)
 
-Among these structures, the CCCR registers play a central role in controlling the operational modes and parameters of the card. The specific layout and bit definitions of the CCCR registers are detailed below, with further bit-level details available in the official specification:
+Among these structures, the CCCR registers play a central role in controlling the operational modes and parameters of the card. The specific layout of the CCCR registers is detailed below, detailed bit definitions can be found in the official specification:
 
 ![Card Common Control Registers (CCCR)](./assets/io_card_operation_flow_2.png)
 
