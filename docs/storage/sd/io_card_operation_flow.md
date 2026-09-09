@@ -10,13 +10,21 @@ SDIO cards feature a fixed internal register space and functional areas. Fixed p
 * **Function Basic Registers (FBR)**
 * **Card Information Structure (CIS)**
 
+The overall organization of the SDIO internal register space and functional areas is illustrated below:
+
+![SDIO card register structure](./assets/io_card_operation_flow_1.png)
+
+Among these structures, the CCCR registers play a central role in controlling the operational modes and parameters of the card. The specific layout and bit definitions of the CCCR registers are detailed below, with further bit-level details available in the official specification:
+
+![Card Common Control Registers (CCCR)](./assets/io_card_operation_flow_2.png)
+
 ## Device Identification
 
 After the card is powered on, the host resets all cards, confirms their voltage ranges, identifies the card types, and obtains their relative card addresses. The entire process uses only the command line. During the power-on process, the default relative card address for all cards is `RCA = 0x0000`, and the default clock frequency f<sub>od</sub> is 0 ~ 400 kHz.
 
 * After power-on, all cards enter the idle state, at which point the card command line is in input mode, waiting for the transmission of the next command.
 * The host first sends command `CMD5` with a parameter of `0`. If no response `R4` is returned, or if the number of functions is `0` and the memory present bit is set, it proceeds with memory card initialization.
-![cmd5](./assets/io_card_operation_flow_1.png)
+![cmd5](./assets/io_card_operation_flow_3.png)
 * Before receiving command `CMD5` with parameters, the I/O area is in an inactive state. If the host supports UHS-I, it will continuously send command `CMD5` within one second to request switching the signal voltage to 1.8 V. If the card supports UHS-I and the current signal voltage is 3.3 V, the card switches the voltage, sets the corresponding bit, and returns response `R4`. If it is already at 1.8 V, it maintains the voltage, does not set the corresponding bit, and returns response `R4`. The host obtains information such as card-supported functions based on response `R4`.
 * If the host fails to receive a response within the timeout period, it should stop sending. Incompatible cards are placed in the inactive state.
 * After the I/O portion is initialized, if the card accepts the voltage switch, the host sends command `CMD11` to switch the signal voltage to 1.8 V.
