@@ -27,6 +27,5 @@ After the card is powered on, the host resets all cards, confirms their voltage 
 I/O read/write operations and register access can only be performed when the SDIO card is in the data transfer mode. In data transfer mode, the default clock frequency f<sub>pp</sub> is up to 25 MHz, and point-to-point communication is established between the host and the target device.
 
 * Command `CMD7` is used to select and deselect specified cards. A card in the stand-by state cannot yet perform I/O communication. A target device with a specific relative card address must be selected to enter the transfer state to enable communication.
-* Command `CMD52` is used to read or write a single byte to a specific register across any function space, commonly used for configuring device parameters or checking status flags.
+* Command `CMD52` is used to read or write a single byte to a specific register across any function space, commonly used for configuring device parameters or checking status flags, the host performs essential configuration tasks such as reading the card version, enabling specific I/O functions, configuring interrupts, and setting up data bus widths and high-speed operation modes.
 * Command `CMD53` is used to read or write multiple bytes or blocks of data to a register address, supporting byte/block modes and fixed or incrementing address operational codes for high-throughput data transfer.
-* Through register access within the CCCR, the host can configure data bus widths (such as switching to 4-bit bus mode) and enable high-speed operation modes.
