@@ -22,8 +22,6 @@ After the card is powered on, the host resets all cards, confirms their voltage 
 * After the I/O portion is initialized, if the card accepts the voltage switch, the host sends command `CMD11` to switch the signal voltage to 1.8 V.
 * The host sends command `CMD3` to request the card to issue a new Relative Card Address (RCA) via response `R6`. It is shorter than the Card Identification (CID), making addressing easier in subsequent transfer modes. Once the RCA is received, the card enters the **stand-by state**. During this period, the host can continue sending command `CMD3` to request updated relative card addresses.
 
----
-
 ## Data Transfer
 
 I/O read/write operations and register access can only be performed when the SDIO card is in the data transfer mode. In data transfer mode, the default clock frequency $f_{pp}$ is up to $25\text{ MHz}$, and point-to-point communication is established between the host and the target device.
