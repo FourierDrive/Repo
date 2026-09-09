@@ -60,8 +60,8 @@ export default {
                 { text: 'Bus Protocol', link: '/storage/sd/bus_protocol' },
                 { text: 'Common Commands', link: '/storage/sd/common_commands' },
                 { text: 'Common Responses', link: '/storage/sd/common_responses' },                
-                { text: 'SDMEM Operation Workflow', link: '/storage/sd/sdmem_operation_workflow' },
-                { text: 'I/O Card Operation Flow', link: '/storage/sd/io_card_operation_flow' }
+                { text: 'Memory Card Operation Workflow', link: '/storage/sd/memory_card_operation_workflow' },
+                { text: 'I/O Card Operation Workflow', link: '/storage/sd/io_card_operation_workflow' }
               ]
             }
           ]
