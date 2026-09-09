@@ -16,6 +16,7 @@ After the card is powered on, the host resets all cards, confirms their voltage 
 
 * After power-on, all cards enter the idle state, at which point the card command line is in input mode, waiting for the transmission of the next command.
 * The host first sends command `CMD5` with a parameter of `0`. If no response `R4` is returned, or if the number of functions is `0` and the memory present bit is set, it proceeds with memory card initialization.
+![cmd5](./assets/io_card_operation_flow_1.png)
 * Before receiving command `CMD5` with parameters, the I/O area is in an inactive state. If the host supports UHS-I, it will continuously send command `CMD5` within one second to request switching the signal voltage to 1.8 V. If the card supports UHS-I and the current signal voltage is 3.3 V, the card switches the voltage, sets the corresponding bit, and returns response `R4`. If it is already at 1.8 V, it maintains the voltage, does not set the corresponding bit, and returns response `R4`. The host obtains information such as card-supported functions based on response `R4`.
 * If the host fails to receive a response within the timeout period, it should stop sending. Incompatible cards are placed in the inactive state.
 * After the I/O portion is initialized, if the card accepts the voltage switch, the host sends command `CMD11` to switch the signal voltage to 1.8 V.
