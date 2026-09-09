@@ -24,7 +24,9 @@ After the card is powered on, the host resets all cards, confirms their voltage 
 
 * After power-on, all cards enter the idle state, at which point the card command line is in input mode, waiting for the transmission of the next command.
 * The host first sends command `CMD5` with a parameter of `0`. If no response `R4` is returned, or if the number of functions is `0` and the memory present bit is set, it proceeds with memory card initialization.
+
 ![cmd5](./assets/io_card_operation_flow_3.png)
+
 * Before receiving command `CMD5` with parameters, the I/O area is in an inactive state. If the host supports UHS-I, it will continuously send command `CMD5` within one second to request switching the signal voltage to 1.8 V. If the card supports UHS-I and the current signal voltage is 3.3 V, the card switches the voltage, sets the corresponding bit, and returns response `R4`. If it is already at 1.8 V, it maintains the voltage, does not set the corresponding bit, and returns response `R4`. The host obtains information such as card-supported functions based on response `R4`.
 * If the host fails to receive a response within the timeout period, it should stop sending. Incompatible cards are placed in the inactive state.
 * After the I/O portion is initialized, if the card accepts the voltage switch, the host sends command `CMD11` to switch the signal voltage to 1.8 V.
@@ -38,3 +40,15 @@ I/O read/write operations and register access can only be performed when the SDI
 * Command `CMD52` is used to read or write a single byte to a specific register across any function space, commonly used for configuring device parameters or checking status flags, the host performs essential configuration tasks such as reading the card version, enabling specific I/O functions, configuring interrupts, and setting up data bus widths and high-speed operation modes.
 * Command `CMD53` is used to read or write multiple bytes or blocks of data to a register address, supporting byte/block modes and fixed or incrementing address operational codes for high-throughput data transfer.
 * During write operations, block transfers, or specific register updates that require internal card processing, the card may pull the **DAT0 line low** to signal a busy state. The host must continuously monitor the DAT0 line until it returns high to ensure the card has completed its operation before issuing the next command.
+
+## Bus State Diagram
+
+During the interaction between the host and the SDIO card, the device transitions through various operational modes and internal states based on hardware events, initialization sequences, and command controls. 
+
+The overall state transition and bus operation flow are illustrated below:
+
+![SDIO Bus State Diagram](./assets/io_card_operation_flow_4.png)
+
+* **Identification Phase**: Upon power-up, cards start in the **Idle State** (under the card identification mode). Through commands such as `CMD5`, `CMD11`, and `CMD3`, the host negotiates voltage levels, assigns Relative Card Addresses (RCA), and transitions the card into the **Stand-by State**.
+* **Transfer Phase**: Once a card's RCA is assigned, the host uses `CMD7` to select the target device, moving it from the Stand-by State into the **Transfer State**. In this mode, full point-to-point communication—including register accesses via `CMD52` and block data streaming via `CMD53` takes place.
+* **Busy Handling & Exceptions**: During internal programming or write operations, cards may signal a busy status via the `DAT0` line. Furthermore, error handling, resets (`CMD0`), or deselection (`CMD7`) can route cards back to idle or standby modes as defined by the physical layer specification.
