@@ -12,7 +12,7 @@ SDIO cards feature a fixed internal register space and functional areas. Fixed p
 
 ## Device Identification
 
-After the card is powered on, the host resets all cards, confirms their voltage ranges, identifies the card types, and obtains their relative card addresses. The entire process uses only the command line. During the power-on process, the default relative card address for all cards is `RCA = 0x0000`, and the default clock frequency $f_{od}$ is $0 \sim 400\text{ kHz}$.
+After the card is powered on, the host resets all cards, confirms their voltage ranges, identifies the card types, and obtains their relative card addresses. The entire process uses only the command line. During the power-on process, the default relative card address for all cards is `RCA = 0x0000`, and the default clock frequency f<sub>od</sub> is 0 ~ 400 kHz.
 
 * After power-on, all cards enter the idle state, at which point the card command line is in input mode, waiting for the transmission of the next command.
 * The host first sends command `CMD5` with a parameter of `0`. If no response `R4` is returned, or if the number of functions is `0` and the memory present bit is set, it proceeds with memory card initialization.
