@@ -1,6 +1,6 @@
 # Features
 
-SD cards are widely used in digital equipment, storage expansion, and information exchange scenarios due to their compact convenience, large capacity, and high-speed transmission:
+SD cards are widely used in digital equipment, storage expansion, and information exchange scenarios due to their compact convenience, large capacity, and high-speed transmission.
 
 ## Convenience
 
