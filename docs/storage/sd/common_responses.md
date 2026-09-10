@@ -112,9 +112,7 @@ Includes operating voltages supported by the card and check responses, used as a
 | **Value** | `0001b` (2.7 V ~ 3.6 V)<br>`0010b` (Reserved for low voltage) | Matches corresponding command `CMD8` check byte value | `x` | `1` |
 
 ## IO_SEND_OP_COND Response (R4)
-The contents of the SDIO card's Operation Conditions Register as a response to command `CMD5`.
-
-> If the operating status field is not set, continue sending command `CMD5` until card initialization is complete.
+The contents of the SDIO card's OCR as a response to command `CMD5`.
 
 | Field | Start bit | Direction | Reserved | Operating status | Number of I/O functions | Memory present |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
