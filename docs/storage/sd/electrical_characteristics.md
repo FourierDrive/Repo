@@ -1,6 +1,10 @@
 # Electrical Characteristics
 
-While SD cards and microSD cards differ in physical appearance, size, and pin definitions, their pin functions remain consistent.
+This section outlines the pin definitions, interface signal allocations, and operational modes for SD memory cards and SDIO devices.
+
+## Memory Card Pin Definitions
+
+While SD cards and microSD cards differ in physical appearance, size, and pin definitions, their core signal functions remain consistent across formats.
 
 <table>
   <thead>
@@ -82,9 +86,11 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
   </tbody>
 </table>
 
-* Note: Card detection (CD)
+* **Note**: Card detection (CD) functionality is typically handled via Pin 1 (CD/DAT3) in SD mode or through dedicated mechanical switch pins in the card socket.
 
-SDIO supports three data transfer modes: 4-bit, 1-bit, and SPI. In 1-bit mode, the DAT1 pin functions as an interrupt line.
+## I/O Card Pin Definitions
+
+SDIO supports three primary data transfer modes: 4-bit mode, 1-bit mode, and SPI mode. Unlike standard memory cards, SDIO allows peripheral devices to signal interrupts back to the host controller. In 1-bit mode, the **DAT1** pin is repurposed to function as the interrupt request (IRQ) line.
 
 <table>
   <thead>
@@ -156,4 +162,9 @@ SDIO supports three data transfer modes: 4-bit, 1-bit, and SPI. In 1-bit mode, t
   </tbody>
 </table>
 
-* Note: Card detection (CD)
+* **Note**: Card detection (CD) is handled identically to standard SD configurations. For SDIO interrupt signaling, the host must configure the corresponding data line to monitor asynchronous interrupt events from the I/O peripheral.
+
+## Power and Signal Levels
+
+* **Voltage Supply (VDD)**: Traditional SD cards operate at a standard 3.3V supply level. High-speed and UHS (Ultra High Speed) cards support dual-voltage signaling, shifting down to 1.8V logic levels during high-speed operations to reduce power consumption and signal integrity degradation.
+* **Signal Ground (VSS1, VSS2)**: Multiple ground pins are designated to ensure stable reference potentials and high-frequency noise suppression across the bus interface.
