@@ -1,11 +1,10 @@
 # Common Commands
 
 Certain commands apply to SDMEM devices, while others are dedicated to SDIO devices. Application scopes are defined as:
-* **Storage**: Applicable only to the storage portion of a memory card or combo card (the I/O portion of an SDIO or combo card will not use this command).
+* **Memory**: Applicable only to the storage portion of a memory card or combo card (the I/O portion of an SDIO or combo card will not use this command).
 * **I/O**: Applicable only to the I/O portion of an SDIO or combo card.
 
 ## GO_IDLE_STATE (CMD0)
-**Reset Command**
 The host can reset the memory card via power-on. Memory cards typically feature built-in power-on detection circuits to complete the power-on sequence, though the host can also explicitly send a reset command to force the card into the idle state. SDIO cards do not use this command for resetting; instead, their I/O reset mechanism is used.
 
 | Field | Start bit | Direction | Command index | Stuff bits | CRC7 | End bit |
