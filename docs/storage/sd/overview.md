@@ -1,5 +1,7 @@
 # Overview
 
+This section provides a comprehensive introduction to the Secure Digital (SD) and Secure Digital Input/Output (SDIO) technologies, covering their historical background, core features, and the evolution of the SD standard versions.
+
 ## Background
 
 The Secure Digital (SD) card (or SDMEM card / memory card) was jointly developed in 1999 by SanDisk, Panasonic, and Toshiba. It introduced higher storage capacities, read/write speeds, and added data encryption functions. It is widely used in digital cameras, smartphones, handheld devices, video game consoles, and various embedded systems. In 2000, the SD Association (SDA) was formed to develop and promote the card standards.
