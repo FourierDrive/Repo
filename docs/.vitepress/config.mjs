@@ -51,10 +51,8 @@ export default {
               text: 'Secure Digital Card',
               collapsed: true,
               items: [
-                { text: 'Background', link: '/storage/sd/background' },
-                { text: 'Features', link: '/storage/sd/features' },
-                { text: 'Standard', link: '/storage/sd/standard' },
-                { text: 'Model', link: '/storage/sd/model' },
+                { text: 'Overview', link: '/storage/sd/overview' },
+                { text: 'System Model', link: '/storage/sd/system_model' },
                 { text: 'Physical Characteristics', link: '/storage/sd/physical_characteristics' },
                 { text: 'Electrical Characteristics', link: '/storage/sd/electrical_characteristics' },
                 { text: 'Bus Protocol', link: '/storage/sd/bus_protocol' },
