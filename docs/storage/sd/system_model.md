@@ -1,4 +1,4 @@
-# Model
+# System Model
 
 The SD network consists of a host and a device, typically involving a single host communicating with one or more devices.
 
