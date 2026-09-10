@@ -29,7 +29,7 @@ SD memory cards continuously evolve and segment in terms of physical size, stora
 
 ## Classification by Speed Class
 
-Early memory card manufacturers denoted speed using multipliers ($\times$), comparing the average data read speed to that of an original CD-ROM drive. This labeling method was later replaced by speed classes, which reflect the card's read and write performance and guarantee minimum read and write speeds. The SDA defines four speed classes: Original Speed Class, Ultra High Speed (UHS) Speed Class, Video Speed Class, and the latest SD Express Speed Class.
+Early memory card manufacturers denoted speed using multipliers (x), comparing the average data read speed to that of an original CD-ROM drive. This labeling method was later replaced by speed classes, which reflect the card's read and write performance and guarantee minimum read and write speeds. The SDA defines four speed classes: Original Speed Class, Ultra High Speed (UHS) Speed Class, Video Speed Class, and the latest SD Express Speed Class.
 
 * **Original Speed Class**: Subdivided into Class 2, Class 4, Class 6, and Class 10, represented by the letter C enclosing a number indicating the minimum write speed (e.g., Class 10 or C10 means a minimum write speed of 10 MB/s).
 * **Ultra High Speed (UHS) Speed Class**: Subdivided into U1 and U3, represented by the letter U enclosing a number indicating the minimum write speed (e.g., U3 means a minimum write speed of 30 MB/s). Used for products with UHS bus interfaces, suitable for high-definition video recording.
