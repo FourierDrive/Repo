@@ -15,6 +15,7 @@ The physical layer specification defines several fixed card registers, among whi
 | Operation conditions register | OCR | Storage: 32 bits<br>I/O: 24 bits | Used in broadcast commands to identify card voltage types | Mandatory |
 
 ## Normal Response Command (R1/R1b)
+
 Returns the card's status. `R1b` can optionally send a busy signal on the data line.
 
 | Field | Start bit | Direction | Command index | Card status | CRC7 | End bit |
@@ -46,6 +47,7 @@ Returns the card's status. `R1b` can optionally send a busy signal on the data l
 * **C**: Cleared by read
 
 ## CID/CSD Register (R2)
+
 Returns the upper 127 bits of the CID or CSD register.
 
 | Field | Start bit | Direction | Reserved | CID or CSD register | End bit |
@@ -55,6 +57,7 @@ Returns the upper 127 bits of the CID or CSD register.
 | **Value** | `0` | `0` | `all 1` | `x` | `1` |
 
 ## OCR Register (R3)
+
 The OCR content of the SD memory card as a response to `ACMD41`.
 
 | Field | Start bit | Direction | Reserved | Card power up status bit (busy) | Card capacity status (CCS) |
@@ -82,6 +85,7 @@ The OCR content of the SD memory card as a response to `ACMD41`.
 | **VDD Corresponding Voltage Range (V)** | 3.5 ~ 3.6 | 3.4 ~ 3.5 | 3.3 ~ 3.4 | 3.2 ~ 3.3 | 3.1 ~ 3.2 | 3.0 ~ 3.1 | 2.9 ~ 3.0 | 2.8 ~ 2.9 | 2.7 ~ 2.8 | Reserved |
 
 ## Published RCA Response (R6)
+
 Used as a response to command `CMD3`. The RCA register contents returned by memory cards and I/O cards differ slightly.
 
 | Field | Start bit | Direction | Command index | New published RCA |
@@ -97,6 +101,7 @@ Used as a response to command `CMD3`. The RCA register contents returned by memo
 | **Value** | Memory card returns status bits `[23]`, `[22]`, `[19]`, `[12:9]`<br>I/O card returns status bits `[23]`, `[22]`, `[19]` | `x` | `1` |
 
 ## Card Interface Condition Response (R7)
+
 Includes operating voltages supported by the card and check responses, used as a response to command `CMD8`.
 
 | Field | Start bit | Direction | Command index | Reserved | PCIe 1.2V support | PCIe response |
@@ -112,6 +117,7 @@ Includes operating voltages supported by the card and check responses, used as a
 | **Value** | `0001b` (2.7 V ~ 3.6 V)<br>`0010b` (Reserved for low voltage) | Matches corresponding command `CMD8` check byte value | `x` | `1` |
 
 ## IO_SEND_OP_COND Response (R4)
+
 The contents of the SDIO card's OCR as a response to command `CMD5`.
 
 | Field | Start bit | Direction | Reserved | Operating status | Number of I/O functions | Memory present |
@@ -127,6 +133,7 @@ The contents of the SDIO card's OCR as a response to command `CMD5`.
 | **Value** | `all 0` | `0` (1.8V switch not accepted)<br>`1` (1.8V switch accepted) | `x` | `all 1` | `1` |
 
 ## IO_RW_DIRECT Response (R5)
+
 Response to command `CMD52`. Returns the device's current working status.
 
 | Field | Start bit | Direction | Command index | Stuff bits | Response flags bit |
