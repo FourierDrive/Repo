@@ -7,12 +7,39 @@ SD memory cards continuously evolve and segment in terms of physical size, stora
 * **Full size**: The traditional SD card with dimensions of 32 mm x 24 mm. This is the original SD card size separated from MMC.
 * **microSD**: Also known as T-card / TF card (originally T-Flash, later renamed TransFlash). It is the smallest SD card size, measuring 15 mm x 11 mm, and is currently the most widely used SD card size. It can be expanded to the physical size of a traditional SD card using an adapter.
 
-| SD Card Physical Size | Full size | microSD |
-| :--- | :--- | :--- |
-| **Dimensions** | 32 mm x 24 mm x 2.1 mm | 15 mm x 11 mm x 1.0 mm |
-| **Pin Count** | High Speed and UHS-I: 9 pins<br>UHS-II: 17 pins<br>SD Express 1-lane: 17 - 19 pins<br>SD Express 2-lane: 25 - 27 pins | High Speed and UHS-I: 8 pins<br>UHS-II: 16 pins<br>SD Express 1-lane: 16 - 17 pins |
-| **Operating Voltage** | 1st row pins operating voltage: 3.3 V (2.7 V ~ 3.6 V)<br>2nd row pins operating voltage: 1.8 V (1.70 V ~ 1.95 V) | - |
-| **Write Protect Switch** | Yes | No |
+<table>
+  <thead>
+    <tr>
+      <th>SD Card Physical Size</th>
+      <th>Full size</th>
+      <th>microSD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Dimensions</strong></td>
+      <td>32 mm x 24 mm x 2.1 mm</td>
+      <td>15 mm x 11 mm x 1.0 mm</td>
+    </tr>
+    <tr>
+      <td><strong>Pin Count</strong></td>
+      <td>High Speed and UHS-I: 9 pins<br>UHS-II: 17 pins<br>SD Express 1-lane: 17 - 19 pins<br>SD Express 2-lane: 25 - 27 pins</td>
+      <td>High Speed and UHS-I: 8 pins<br>UHS-II: 16 pins<br>SD Express 1-lane: 16 - 17 pins</td>
+    </tr>
+    <tr>
+      <td><strong>Operating Voltage</strong></td>
+      <td colspan="2">
+        1st row pins operating voltage: 3.3 V (2.7 V ~ 3.6 V)<br>
+        2nd row pins operating voltage: 1.8 V (1.70 V ~ 1.95 V)
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Write Protect Switch</strong></td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Classification by Storage Capacity
 
@@ -36,28 +63,147 @@ Early memory card manufacturers denoted speed using multipliers (x), comparing t
 * **Video Speed Class**: Subdivided into V6, V10, V30, V60, and V90, represented by the letter V followed by a number indicating the minimum sequential write speed (e.g., V60 means a minimum write speed of 60 MB/s). Matches current MLC flash memory and supports high-quality 4K/8K video recording.
 * **SD Express Speed Class**: Subdivided into E150, E300, E450, and E600, represented by the letter E followed by a number indicating the minimum read/write speed.
 
-| Minimum Sequential Write Speed | Maximum Rate | Original Speed Class | Ultra High Speed Class | Video Speed Class | SD Express Speed Class | Video Format Recommendation |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 2 MB/s | 15 Mbps | C2 | - | - | - | Standard |
-| 4 MB/s | 30 Mbps | C4 | - | - | - | HD / Full HD |
-| 6 MB/s | 45 Mbps | C6 | - | V6 | - | 4K (3840 x 2160 pix) |
-| 10 MB/s | 75 Mbps | C10 | U1 | V10 | - | - |
-| 30 MB/s | 220 Mbps | - | U3 | V30 | - | 8K (7680 x 4320 pix) |
-| 60 MB/s | 460 Mbps | - | - | V60 | - | - |
-| 90 MB/s | 700 Mbps | - | - | V90 | - | - |
-| 150 MB/s | - | - | - | - | E150 | 4K/8K Multi-stream |
-| 300 MB/s | - | - | - | - | E300 | - |
-| 450 MB/s | - | - | - | - | E450 | - |
-| 600 MB/s | - | - | - | - | E600 | - |
+<table>
+  <thead>
+    <tr>
+      <th>Minimum Sequential Write Speed</th>
+      <th>Maximum Rate</th>
+      <th>Original Speed Class</th>
+      <th>Ultra High Speed Class</th>
+      <th>Video Speed Class</th>
+      <th>Video Format Recommendation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2 MB/s</td>
+      <td>15 Mbps</td>
+      <td>C2</td>
+      <td rowspan="3">-</td>
+      <td rowspan="2">-</td>
+      <td>Standard</td>
+    </tr>
+    <tr>
+      <td>4 MB/s</td>
+      <td>30 Mbps</td>
+      <td>C4</td>
+      <td>HD / Full HD</td>
+    </tr>
+    <tr>
+      <td>6 MB/s</td>
+      <td>45 Mbps</td>
+      <td>C6</td>
+      <td>V6</td>
+      <td rowspan="2">4K (3840 x 2160 pix)</td>
+    </tr>
+    <tr>
+      <td>10 MB/s</td>
+      <td>75 Mbps</td>
+      <td rowspan="4">C10</td>
+      <td>U1</td>
+      <td>V10</td>
+    </tr>
+    <tr>
+      <td>30 MB/s</td>
+      <td>220 Mbps</td>
+      <td rowspan="3">U3</td>
+      <td>V30</td>
+      <td rowspan="3">8K (7680 x 4320 pix)</td>
+    </tr>
+    <tr>
+      <td>60 MB/s</td>
+      <td>460 Mbps</td>
+      <td>V60</td>
+    </tr>
+    <tr>
+      <td>90 MB/s</td>
+      <td>700 Mbps</td>
+      <td>V90</td>
+    </tr>
+    <tr>
+      <td>150 MB/s</td>
+      <td rowspan="4">-</td>
+      <td rowspan="4">-</td>
+      <td rowspan="4">-</td>
+      <td>E150</td>
+      <td rowspan="4">4K/8K Multi-stream</td>
+    </tr>
+    <tr>
+      <td>300 MB/s</td>
+      <td>E300</td>
+    </tr>
+    <tr>
+      <td>450 MB/s</td>
+      <td>E450</td>
+    </tr>
+    <tr>
+      <td>600 MB/s</td>
+      <td>E600</td>
+    </tr>
+  </tbody>
+</table>
 
 Traditional SD cards have only a single row of pins with a 3.3 V supply voltage, usable for Default Speed, High Speed, and UHS-I speed modes. To increase transmission speeds, UHS-II and UHS-III add a second row of pins and introduce low-voltage serial differential bus technology for data transfer. UHS-II can operate in full-duplex mode (default) or switch to half-duplex mode (doubling the speed), while UHS-III simplifies physical layer design by using full-duplex mode exclusively.
 
-| Type | Standard | Maximum Bus Rate | Memory Card Type |
-| :--- | :--- | :--- | :--- |
-| **Default speed** | Ver. 1.01 | 12.5 MB/s | SDSC |
-| **High speed** | Ver. 1.10 | 25 MB/s | SDHC / SDXC / SDUC |
-| **UHS-I** | Ver. 3.01 | 50 MB/s (SDR50, DDR50)<br>104 MB/s (SDR104) | - |
-| **UHS-II** | Ver. 4.00 | 156 MB/s Full-duplex (FD156)<br>312 MB/s Half-duplex (HD312) | - |
-| **UHS-III** | Ver. 6.00 | 312 MB/s Full-duplex (FD312)<br>624 MB/s Full-duplex (FD624) | - |
-| **SD Express** | Ver. 7.00 | 985 MB/s (PCIe 3.1 x 1) | - |
-| | Ver. 8.00 | 1969 MB/s (PCIe 3.1 x 2)<br>1969 MB/s (PCIe 4.0 x 1)<br>3938 MB/s (PCIe 4.0 x 2) | - |
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Standard</th>
+      <th>Maximum Bus Rate</th>
+      <th colspan="2">Memory Card Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Default speed</strong></td>
+      <td>Ver. 1.01</td>
+      <td>12.5 MB/s</td>
+      <td rowspan="2">SDSC</td>
+      <td rowspan="7">SDHC / SDXC / SDUC</td>
+    </tr>
+    <tr>
+      <td><strong>High speed</strong></td>
+      <td>Ver. 1.10</td>
+      <td>25 MB/s</td>
+    </tr>
+    <tr>
+      <td><strong>UHS-I</strong></td>
+      <td>Ver. 3.01</td>
+      <td>
+        50 MB/s (SDR50, DDR50)<br>
+        104 MB/s (SDR104)
+      </td>
+      <td rowspan="5">-</td>
+    </tr>
+    <tr>
+      <td><strong>UHS-II</strong></td>
+      <td>Ver. 4.00</td>
+      <td>
+        156 MB/s Full-duplex (FD156)<br>
+        312 MB/s Half-duplex (HD312)
+      </td>
+    </tr>
+    <tr>
+      <td><strong>UHS-III</strong></td>
+      <td>Ver. 6.00</td>
+      <td>
+        312 MB/s Full-duplex (FD312)<br>
+        624 MB/s Full-duplex (FD624)
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>SD Express</strong></td>
+      <td>Ver. 7.00</td>
+      <td>985 MB/s (PCIe 3.1 x 1)</td>
+    </tr>
+    <tr>
+      <td>Ver. 8.00</td>
+      <td>
+        1969 MB/s (PCIe 3.1 x 2)<br>
+        1969 MB/s (PCIe 4.0 x 1)<br>
+        3938 MB/s (PCIe 4.0 x 2)
+      </td>
+    </tr>
+  </tbody>
+</table>
