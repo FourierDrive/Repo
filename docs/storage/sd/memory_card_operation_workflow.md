@@ -6,18 +6,60 @@ During communication between the host and the card, they may be in different mod
 
 Both the host and the card have a card identification mode and a data transfer mode. In each operation mode, the card has several states, and state transitions are controlled via commands.
 
-| Operation Mode | Card State | Storage Card Current Card State Field Encoding |
-| :--- | :--- | :--- |
-| **Inactive** | Inactive state | `-` |
-| **Card identification mode** | Idle state | `0000b` |
-| | Ready state | `0001b` |
-| | Identification state | `0010b` |
-| **Data transfer mode** | Stand-by state | `0011b` |
-| | Transfer state | `0100b` |
-| | Sending-data state | `0101b` |
-| | Receive-data state | `0110b` |
-| | Programming state | `0111b` |
-| | Disconnect state | `1000b` |
+<table>
+  <thead>
+    <tr>
+      <th>Operation Mode</th>
+      <th>Card State</th>
+      <th>Memory Card Field Encoding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Inactive</strong></td>
+      <td>Inactive state</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>Card identification mode</strong></td>
+      <td>Idle state</td>
+      <td>0000b</td>
+    </tr>
+    <tr>
+      <td>Ready state</td>
+      <td>0001b</td>
+    </tr>
+    <tr>
+      <td>Identification state</td>
+      <td>0010b</td>
+    </tr>
+    <tr>
+      <td rowspan="6"><strong>Data transfer mode</strong></td>
+      <td>Stand-by state</td>
+      <td>0011b</td>
+    </tr>
+    <tr>
+      <td>Transfer state</td>
+      <td>0100b</td>
+    </tr>
+    <tr>
+      <td>Sending-data state</td>
+      <td>0101b</td>
+    </tr>
+    <tr>
+      <td>Receive-data state</td>
+      <td>0110b</td>
+    </tr>
+    <tr>
+      <td>Programming state</td>
+      <td>0111b</td>
+    </tr>
+    <tr>
+      <td>Disconnect state</td>
+      <td>1000b</td>
+    </tr>
+  </tbody>
+</table>
 
 After reset, the host enters the **card identification mode** to query available devices on the bus, while the devices are also in card identification mode until recognized by the host. Devices requiring communication receive specific commands to enter the data transfer mode, while the host enters the data transfer mode once all devices on the bus have been identified.
 
