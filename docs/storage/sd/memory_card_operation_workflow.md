@@ -11,7 +11,7 @@ Both the host and the card have a card identification mode and a data transfer m
     <tr>
       <th>Operation Mode</th>
       <th>Card State</th>
-      <th>Memory Card Field Encoding</th>
+      <th>Card State Field Encoding</th>
     </tr>
   </thead>
   <tbody>
