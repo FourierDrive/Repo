@@ -61,7 +61,7 @@ Both the host and the card have a card identification mode and a data transfer m
   </tbody>
 </table>
 
-After reset, the host enters the **card identification mode** to query available devices on the bus, while the devices are also in card identification mode until recognized by the host. Devices requiring communication receive specific commands to enter the data transfer mode, while the host enters the data transfer mode once all devices on the bus have been identified.
+After reset, the host enters the **card identification mode** to query available devices on the bus, while the devices are also in card identification mode until recognized by the host. Devices requiring communication receive specific commands to enter the **data transfer mode**, while the host enters the data transfer mode once all devices on the bus have been identified.
 
 ## Device Identification
 
