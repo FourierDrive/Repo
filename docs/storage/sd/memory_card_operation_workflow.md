@@ -65,7 +65,7 @@ After reset, the host enters the **card identification mode** to query available
 
 ## Device Identification
 
-After the card is powered on, the host resets all cards, confirms their voltage ranges, identifies the card types, and obtains their relative card addresses. The entire process uses only the command line for transmission. During the power-on process, the default relative card address for all cards is `RCA = 0x0000`, and the default clock frequency $f_{od}$ is $0 \sim 400\text{ kHz}$.
+After the card is powered on, the host resets all cards, confirms their voltage ranges, identifies the card types, and obtains their relative card addresses. The entire process uses only the command line for transmission. During the power-on process, the default relative card address for all cards is `RCA = 0x0000`, and the default clock frequency f<sub>od</sub> is 0 ~ 400 kHz.
 
 * After power-on, all cards enter the **idle state**, including cards previously in the inactive state. However, inactive cards are not affected by the reset command `CMD0`. Command `CMD0` can soft-reset cards in any other state to force them into the idle state. At this point, the card command line is in input mode, waiting for the transmission of the next command.
 * After a reset, the host needs to determine the supply voltage range of the card. Command `CMD8` is used to verify the interface operating conditions of the memory card. If the card can operate properly at the supply voltage provided by the host, it returns a correct response `R7`. Based on this, the host determines whether the card is version 2.0 or higher. The device also uses the received command `CMD8` to determine whether the host supports physical layer protocol version 2.0 and above, thereby enabling new features. Otherwise, the card returns no response and remains in the idle state.
@@ -76,7 +76,7 @@ After the card is powered on, the host resets all cards, confirms their voltage 
 
 ## Data Transfer
 
-Data read and write operations can only be performed when the card is in the data transfer mode. In data transfer mode, the default clock frequency $f_{pp}$ is up to $25\text{ MHz}$, and there are multiple state transition relationships. Frequency switching can be achieved via command `CMD4`.
+Data read and write operations can only be performed when the card is in the data transfer mode. In data transfer mode, the default clock frequency f<sub>pp</sub> is up to 25 MHz, and there are multiple state transition relationships. Frequency switching can be achieved via command `CMD4`.
 
 * Command `CMD7` is used to select and deselect specified cards. A card in the stand-by state cannot yet perform data communication because there may be multiple cards in the stand-by state on the bus. A target device with a specific relative card address must be selected to enter the transfer state to enable data communication. Simultaneously, command `CMD7` can also return the selected target device back to the stand-by state.
 * Data communication in data transfer mode is performed point-to-point between the host and the target device using addressing commands. When the device is in the transfer state, block read, write, and erase commands can be used to read, write, or erase data.
