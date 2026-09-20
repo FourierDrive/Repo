@@ -90,18 +90,20 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
 
 ## I/O Card Pin Definitions
 
-SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, and SPI mode. Unlike standard memory cards, SDIO allows peripheral devices to signal asynchronous interrupts back to the host controller. Specifically, the **DAT1** pin can be used as an interrupt output from the card during times when it is not in use for data transfer operations.
+SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, and SPI mode. Unlike standard memory cards, SDIO allows peripheral devices to signal asynchronous interrupts back to the host controller.
 
 <table>
   <thead>
     <tr>
-      <th colspan="4">SDIO Different Mode Pin Definitions</th>
+      <th colspan="6">SDIO Pin Definitions and Signal Types</th>
     </tr>
     <tr>
       <th>Pin Number</th>
       <th>SD 4-bit Mode</th>
       <th>SD 1-bit Mode</th>
       <th>SPI Mode</th>
+      <th>Type</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -110,61 +112,84 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
       <td>CD/DAT3</td>
       <td>Reserved</td>
       <td>CS</td>
+      <td>I/O / I (PP)</td>
+      <td>Card Detect / Data Line [Bit 3] / Chip Select</td>
     </tr>
     <tr>
       <td><strong>2</strong></td>
       <td>CMD</td>
       <td>CMD</td>
       <td>DI</td>
+      <td>I/O / I</td>
+      <td>Command / Response / Data In</td>
     </tr>
     <tr>
       <td><strong>3</strong></td>
       <td>VSS1</td>
       <td>VSS1</td>
       <td>VSS1</td>
+      <td>S</td>
+      <td>Supply voltage ground</td>
     </tr>
     <tr>
       <td><strong>4</strong></td>
       <td>VDD</td>
       <td>VDD</td>
       <td>VDD</td>
+      <td>S</td>
+      <td>Supply voltage</td>
     </tr>
     <tr>
       <td><strong>5</strong></td>
       <td>CLK</td>
       <td>SCLK</td>
       <td>SCLK</td>
+      <td>I</td>
+      <td>Clock</td>
     </tr>
     <tr>
       <td><strong>6</strong></td>
       <td>VSS2</td>
       <td>VSS2</td>
       <td>VSS2</td>
+      <td>S</td>
+      <td>Supply voltage ground</td>
     </tr>
     <tr>
       <td><strong>7</strong></td>
       <td>DAT0</td>
       <td>DAT</td>
       <td>DO</td>
+      <td>I/O / O (PP)</td>
+      <td>Data Line [Bit 0] / Data Out</td>
     </tr>
     <tr>
       <td><strong>8</strong></td>
       <td>DAT1</td>
-      <td>IRQ (Interrupt Output)</td>
       <td>IRQ</td>
+      <td>IRQ</td>
+      <td>I/O (PP)</td>
+      <td>Data Line [Bit 1] / Interrupt Output (from Card)</td>
     </tr>
     <tr>
       <td><strong>9</strong></td>
       <td>DAT2</td>
-      <td>Read Wait / Reserved</td>
+      <td>Read Wait</td>
       <td>Reserved</td>
+      <td>I/O (PP)</td>
+      <td>Data Line [Bit 2] / Read Wait signal</td>
     </tr>
   </tbody>
 </table>
 
-* **Note**: Card detection (CD) is handled identically to standard SD configurations. For SDIO interrupt signaling, the host must configure the corresponding data line to monitor asynchronous interrupt events from the I/O peripheral when data transfer is inactive.
-* **SPI and SD 1-bit Mode Interrupts**: Pin 8 is dedicated to the interrupt function with no timing constraints. The card can signal an interrupt at any time by driving pin 8 low, and the host detects and clears it using a level-sensitive input.
-* **SD 4-bit Mode Interrupts**: Because pin 8 is multiplexed with `DAT1`, interrupts are restricted to a specific "Interrupt Period". The host samples the line during this designated window, treating it synchronously or asynchronously depending on the operating speed.
+* **Signal Types**: 
+  * **S**: Power supply
+  * **I**: Input
+  * **O**: Output using push-pull drivers
+  * **PP**: I/O using push-pull drivers
+* **Card Detection and Special Signals**: Pin 1 incorporates an internal pull-up resistor for card detection and mode selection, which can be disconnected during regular data transfer using the `SET_CLR_CARD_DETECT` (ACMD42) command. Additionally, Pin 9 (`DAT2`) can be utilized as a Read Wait signal in SDIO mode.
+* **SPI and SD 1-bit Mode Interrupts**: Pin 8 is dedicated to the interrupt function with no timing constraints. The card can signal an interrupt at any time by driving Pin 8 low, and the host detects and clears it using a level-sensitive input.
+* **SD 4-bit Mode Interrupts**: Because Pin 8 is multiplexed with `DAT1`, interrupts are restricted to a specific "Interrupt Period". The host samples the line during this designated window, treating it synchronously or asynchronously depending on the operating speed.
 
 ## Power and Signal Levels
 
