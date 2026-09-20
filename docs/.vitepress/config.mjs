@@ -35,10 +35,8 @@ export default {
               text: 'Multi-Media Card',
               collapsed: true,
               items: [
-                { text: 'Background', link: '/storage/mmc/background' },
-                { text: 'Features', link: '/storage/mmc/features' },
-                { text: 'Standard', link: '/storage/mmc/standard' },
-                { text: 'Model', link: '/storage/mmc/model' },
+                { text: 'Overview', link: '/storage/mmc/overview' },
+                { text: 'System Model', link: '/storage/mmc/system_model' },
                 { text: 'Physical Characteristics', link: '/storage/mmc/physical_characteristics' },
                 { text: 'Electrical Characteristics', link: '/storage/mmc/electrical_characteristics' },
                 { text: 'Bus Protocol', link: '/storage/mmc/bus_protocol' },
