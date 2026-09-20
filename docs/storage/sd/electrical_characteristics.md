@@ -90,7 +90,7 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
 
 ## I/O Card Pin Definitions
 
-SDIO supports three primary data transfer modes: 4-bit mode, 1-bit mode, and SPI mode. Unlike standard memory cards, SDIO allows peripheral devices to signal interrupts back to the host controller. In 1-bit mode, the **DAT1** pin is repurposed to function as the interrupt request (IRQ) line.
+SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, and SPI mode. Unlike standard memory cards, SDIO allows peripheral devices to signal asynchronous interrupts back to the host controller. Specifically, the **DAT1** pin can be used as an interrupt output from the card during times when it is not in use for data transfer operations.
 
 <table>
   <thead>
@@ -150,19 +150,19 @@ SDIO supports three primary data transfer modes: 4-bit mode, 1-bit mode, and SPI
     <tr>
       <td><strong>8</strong></td>
       <td>DAT1</td>
-      <td>IRQ</td>
+      <td>IRQ (Interrupt Output)</td>
       <td>IRQ</td>
     </tr>
     <tr>
       <td><strong>9</strong></td>
       <td>DAT2</td>
-      <td>Reserved</td>
+      <td>Read Wait / Reserved</td>
       <td>Reserved</td>
     </tr>
   </tbody>
 </table>
 
-* **Note**: Card detection (CD) is handled identically to standard SD configurations. For SDIO interrupt signaling, the host must configure the corresponding data line to monitor asynchronous interrupt events from the I/O peripheral.
+* **Note**: Card detection (CD) is handled identically to standard SD configurations. For SDIO interrupt signaling, the host must configure the corresponding data line to monitor asynchronous interrupt events from the I/O peripheral when data transfer is inactive.
 
 ## Power and Signal Levels
 
