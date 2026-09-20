@@ -102,7 +102,7 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
       <th>SD 4-bit Mode</th>
       <th>SD 1-bit Mode</th>
       <th>SPI Mode</th>
-      <th>Type</th>
+      <th>Type (SD / SPI)</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -112,7 +112,7 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
       <td>CD/DAT3</td>
       <td>Reserved</td>
       <td>CS</td>
-      <td>I/O / I (PP)</td>
+      <td>SD: I/O/PP<br>SPI: I</td>
       <td>Card Detect / Data Line [Bit 3] / Chip Select</td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
       <td>CMD</td>
       <td>CMD</td>
       <td>DI</td>
-      <td>I/O / I</td>
+      <td>SD: I/O/PP<br>SPI: I</td>
       <td>Command / Response / Data In</td>
     </tr>
     <tr>
@@ -160,15 +160,15 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
       <td>DAT0</td>
       <td>DAT</td>
       <td>DO</td>
-      <td>I/O / O (PP)</td>
+      <td>SD: I/O/PP<br>SPI: O/PP</td>
       <td>Data Line [Bit 0] / Data Out</td>
     </tr>
     <tr>
       <td><strong>8</strong></td>
       <td>DAT1</td>
       <td>IRQ</td>
-      <td>IRQ</td>
-      <td>I/O (PP)</td>
+      <td>Reserved</td>
+      <td>SD: I/O/PP<br>SPI: -</td>
       <td>Data Line [Bit 1] / Interrupt Output (from Card)</td>
     </tr>
     <tr>
@@ -176,7 +176,7 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
       <td>DAT2</td>
       <td>Read Wait</td>
       <td>Reserved</td>
-      <td>I/O (PP)</td>
+      <td>SD: I/O/PP<br>SPI: -</td>
       <td>Data Line [Bit 2] / Read Wait signal</td>
     </tr>
   </tbody>
