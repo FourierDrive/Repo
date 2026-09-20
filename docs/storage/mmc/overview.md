@@ -27,21 +27,10 @@ The MMC standard version phases progressed from the initial version 1.0 released
 
 ### eMMC Standard Versions (JEDEC Released)
 
-<table>
-  <thead>
-    <tr>
-      <th>Years</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2012 ~ 2015</td>
-      <td>JESD84-B451 (2012), JESD84-B50 (2013), JESD84-B50.1 (2014), JESD84-B51 (2015)</td>
-    </tr>
-    <tr>
-      <td>2019</td>
-      <td>JESD84-B51A (2019)</td>
-    </tr>
-  </tbody>
-</table>
+| Version | Year | Status |
+| :--- | :--- | :--- |
+| JESD84-B451 | 2012 | Withdrawn |
+| JESD84-B50 | 2013 | Withdrawn |
+| JESD84-B50.1 | 2014 | Withdrawn |
+| JESD84-B51 | 2015 | Withdrawn |
+| JESD84-B51A | 2019 | Published |
