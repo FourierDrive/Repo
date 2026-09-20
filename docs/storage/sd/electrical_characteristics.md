@@ -111,7 +111,6 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
   * **I**: Input
   * **O**: Output using push-pull drivers
   * **PP**: I/O using push-pull drivers
-* **Card Detection and Special Signals**: Pin 1 incorporates an internal pull-up resistor for card detection and mode selection, which can be disconnected during regular data transfer using the `SET_CLR_CARD_DETECT` (ACMD42) command. Card detection (CD) functionality is typically handled via Pin 1 (CD/DAT3) in SD mode or through dedicated mechanical switch pins in the card socket.
 
 ## I/O Card Pin Definitions
 
@@ -212,11 +211,11 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
   * **I**: Input
   * **O**: Output using push-pull drivers
   * **PP**: I/O using push-pull drivers
-* **Card Detection and Special Signals**: Pin 1 incorporates an internal pull-up resistor for card detection and mode selection, which can be disconnected during regular data transfer using the `SET_CLR_CARD_DETECT` (ACMD42) command. Additionally, Pin 9 (`DAT2`) can be utilized as a Read Wait signal in SDIO mode.
+
+## Signal Behaviors
+
+* **Voltage Supply (VDD)**: Traditional SD cards operate at a standard 3.3V supply level. High-speed and Ultra High Speed (UHS) cards support dual-voltage signaling, shifting down to 1.8V logic levels during high-speed operations to reduce power consumption and signal integrity degradation.
+* **Signal Ground (VSS1, VSS2)**: Multiple ground pins are designated to ensure stable reference potentials and high-frequency noise suppression across the bus interface.
+* **Card Detection and Special Signals**: Pin 1 incorporates an internal pull-up resistor for card detection and mode selection, which can be disconnected during regular data transfer using the `SET_CLR_CARD_DETECT` (ACMD42) command. Card detection (CD) functionality is typically handled via Pin 1 (CD/DAT3) in SD mode or through dedicated mechanical switch pins in the card socket, while Pin 9 (`DAT2`) can be utilized as a Read Wait signal in SDIO mode.
 * **SPI and SD 1-bit Mode Interrupts**: Pin 8 is dedicated to the interrupt function with no timing constraints. The card can signal an interrupt at any time by driving Pin 8 low, and the host detects and clears it using a level-sensitive input.
 * **SD 4-bit Mode Interrupts**: Because Pin 8 is multiplexed with `DAT1`, interrupts are restricted to a specific "Interrupt Period". The host samples the line during this designated window, treating it synchronously or asynchronously depending on the operating speed.
-
-## Power and Signal Levels
-
-* **Voltage Supply (VDD)**: Traditional SD cards operate at a standard 3.3V supply level. High-speed and UHS (Ultra High Speed) cards support dual-voltage signaling, shifting down to 1.8V logic levels during high-speed operations to reduce power consumption and signal integrity degradation.
-* **Signal Ground (VSS1, VSS2)**: Multiple ground pins are designated to ensure stable reference potentials and high-frequency noise suppression across the bus interface.
