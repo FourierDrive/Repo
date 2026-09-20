@@ -163,6 +163,8 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
 </table>
 
 * **Note**: Card detection (CD) is handled identically to standard SD configurations. For SDIO interrupt signaling, the host must configure the corresponding data line to monitor asynchronous interrupt events from the I/O peripheral when data transfer is inactive.
+* **SPI and SD 1-bit Mode Interrupts**: Pin 8 is dedicated to the interrupt function with no timing constraints. The card can signal an interrupt at any time by driving pin 8 low, and the host detects and clears it using a level-sensitive input.
+* **SD 4-bit Mode Interrupts**: Because pin 8 is multiplexed with `DAT1`, interrupts are restricted to a specific "Interrupt Period". The host samples the line during this designated window, treating it synchronously or asynchronously depending on the operating speed.
 
 ## Power and Signal Levels
 
