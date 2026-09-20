@@ -9,7 +9,7 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
 <table>
   <thead>
     <tr>
-      <th colspan="5">SD Card and microSD Card Pin Definitions</th>
+      <th colspan="7">SD Card and microSD Card Pin Definitions</th>
     </tr>
     <tr>
       <th>Pin Number</th>
@@ -17,6 +17,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <th>SD Card (SPI Mode)</th>
       <th>microSD Card (SD Mode)</th>
       <th>microSD Card (SPI Mode)</th>
+      <th>Type (SD / SPI)</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +28,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>CS</td>
       <td>DAT2</td>
       <td>Reserved</td>
+      <td>SD: I/O/PP<br>SPI: I</td>
+      <td>Card Detect / Data Line [Bit 3] / Chip Select</td>
     </tr>
     <tr>
       <td><strong>2</strong></td>
@@ -33,6 +37,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>DI</td>
       <td>DAT3</td>
       <td>CS</td>
+      <td>SD: I/O/PP<br>SPI: I</td>
+      <td>Command / Response / Data In / Chip Select</td>
     </tr>
     <tr>
       <td><strong>3</strong></td>
@@ -40,6 +46,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>VSS</td>
       <td>CMD</td>
       <td>DI</td>
+      <td>SD: S<br>SPI: S</td>
+      <td>Supply voltage ground / Command / Data In</td>
     </tr>
     <tr>
       <td><strong>4</strong></td>
@@ -47,6 +55,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>VDD</td>
       <td>VDD</td>
       <td>VDD</td>
+      <td>S</td>
+      <td>Supply voltage</td>
     </tr>
     <tr>
       <td><strong>5</strong></td>
@@ -54,6 +64,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>SCLK</td>
       <td>CLK</td>
       <td>SCLK</td>
+      <td>I</td>
+      <td>Clock</td>
     </tr>
     <tr>
       <td><strong>6</strong></td>
@@ -61,6 +73,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>VSS2</td>
       <td>VSS</td>
       <td>VSS</td>
+      <td>S</td>
+      <td>Supply voltage ground</td>
     </tr>
     <tr>
       <td><strong>7</strong></td>
@@ -68,6 +82,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>DO</td>
       <td>DAT0</td>
       <td>DO</td>
+      <td>SD: I/O/PP<br>SPI: O/PP</td>
+      <td>Data Line [Bit 0] / Data Out</td>
     </tr>
     <tr>
       <td><strong>8</strong></td>
@@ -75,6 +91,8 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>Reserved</td>
       <td>DAT1</td>
       <td>Reserved</td>
+      <td>SD: I/O/PP<br>SPI: -</td>
+      <td>Data Line [Bit 1] / Reserved</td>
     </tr>
     <tr>
       <td><strong>9</strong></td>
@@ -82,11 +100,18 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>Reserved</td>
       <td>-</td>
       <td>-</td>
+      <td>SD: I/O/PP<br>SPI: -</td>
+      <td>Data Line [Bit 2]</td>
     </tr>
   </tbody>
 </table>
 
-* **Note**: Card detection (CD) functionality is typically handled via Pin 1 (CD/DAT3) in SD mode or through dedicated mechanical switch pins in the card socket.
+* **Signal Types**: 
+  * **S**: Power supply
+  * **I**: Input
+  * **O**: Output using push-pull drivers
+  * **PP**: I/O using push-pull drivers
+* **Card Detection and Special Signals**: Pin 1 incorporates an internal pull-up resistor for card detection and mode selection, which can be disconnected during regular data transfer using the `SET_CLR_CARD_DETECT` (ACMD42) command. Card detection (CD) functionality is typically handled via Pin 1 (CD/DAT3) in SD mode or through dedicated mechanical switch pins in the card socket.
 
 ## I/O Card Pin Definitions
 
