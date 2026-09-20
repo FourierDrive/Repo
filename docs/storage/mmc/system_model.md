@@ -1,4 +1,4 @@
-# Model
+# System Model
 
 The eMMC network consists of a Host and a Device, typically communicating between a single host and one or more devices.
 
