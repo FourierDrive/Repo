@@ -26,69 +26,23 @@ To ensure power stability and signal integrity, external decoupling capacitors m
 
 *\*Note: Recommended typical value for C<sub>REG</sub>.*
 
-## Pin Definitions
+## Interface Definitions
 
 The pin definitions and signal directions defined below are viewed from the eMMC device's perspective. The bus includes a clock line, command line, and data lines, while eMMC version 4.5 and later versions added dedicated pins such as hardware reset and data strobe.
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>CLK</td>
-      <td>I</td>
-      <td>Clock</td>
-    </tr>
-    <tr>
-      <td>DS</td>
-      <td>O/PP</td>
-      <td>Data strobe (Used in HS400 mode for data synchronization)</td>
-    </tr>
-    <tr>
-      <td>DAT[7:0]</td>
-      <td>I/O/PP</td>
-      <td>Data</td>
-    </tr>
-    <tr>
-      <td>CMD</td>
-      <td>I/O/PP/OD</td>
-      <td>Command/Response</td>
-    </tr>
-    <tr>
-      <td>RST_n</td>
-      <td>I</td>
-      <td>Hardware reset</td>
-    </tr>
-    <tr>
-      <td>VCC</td>
-      <td>S</td>
-      <td>Supply voltage for Core</td>
-    </tr>
-    <tr>
-      <td>VCCQ</td>
-      <td>S</td>
-      <td>Supply voltage for I/O</td>
-    </tr>
-    <tr>
-      <td>VSS</td>
-      <td>S</td>
-      <td>Supply voltage ground for Core</td>
-    </tr>
-    <tr>
-      <td>VSSQ</td>
-      <td>S</td>
-      <td>Supply voltage ground for I/O</td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>NOTE</strong> I: input; O: output; PP: push-pull; OD: open-drain; S: power supply.</td>
-    </tr>
-  </tbody>
-</table>
+| Name | Type* | Description |
+| :--- | :--- | :--- |
+| **CLK** | I | Clock |
+| **DS** | O/PP | Data strobe (Used in HS400 mode for data synchronization) |
+| **DAT[7:0]** | I/O/PP | Data |
+| **CMD** | I/O/PP/OD | Command/Response |
+| **RST_n** | I | Hardware reset |
+| **VCC** | S | Supply voltage for Core |
+| **VCCQ** | S | Supply voltage for I/O |
+| **VSS** | S | Supply voltage ground for Core |
+| **VSSQ** | S | Supply voltage ground for I/O |
+
+*NOTE: I: input; O: output; PP: push-pull; OD: open-drain; S: power supply.*
 
 ## Signal Behaviors
 
