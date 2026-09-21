@@ -12,7 +12,7 @@ The eMMC standard defines that all response lengths depend on the response type,
 | **Extended Card Specific Data (EXT_CSD)** | 512 bytes | Extended device-specific data, actual device configuration, etc. | Mandatory |
 
 ## Normal Response Command (R1/R1b)
-Returns the device status. R1b can optionally send a busy signal on the data line.
+Returns the device status. **R1b** can optionally send a busy signal on the data line.
 
 | Field | Start bit | Transmission bit | Command index | Device status | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -42,7 +42,7 @@ Returns the device status. R1b can optionally send a busy signal on the data lin
 * **B:** Related to the previous command; cleared upon receiving a valid command
 
 ## CID / CSD Register (R2)
-Returns CID or CSD contents. CID register content is used in response to commands CMD2 and CMD10. CSD register content is used in response to command CMD9.
+Returns CID or CSD contents. CID register content is used in response to commands **CMD2** and **CMD10**. CSD register content is used in response to command **CMD9**.
 
 * CID contains information such as the device manufacturer, device name, serial number, revision, production year, etc.
 * The Card Command Class (CCC) [95:84] field bits of the CSD register indicate the command classes it supports.
@@ -55,14 +55,14 @@ Returns CID or CSD contents. CID register content is used in response to command
 | **Value** | `0` | `0` | `all 1` | `x` | `1` |
 
 ## Extended CSD Register (EXT_CSD)
-Returns EXT_CSD register contents in response to command CMD8. Register contents are returned via DATA0.
+Returns EXT_CSD register contents in response to command **CMD8**. Register contents are returned via **DATA0**.
 
 * The upper 320 bytes contain device attribute information, which are read-only registers and cannot be modified by the host.
 * The lower 192 bytes reflect the configuration of the device under its current working mode.
 * Refer to standard definitions for specific field meanings of EXT_CSD.
 
 ## OCR Register (R3)
-The OCR content of the eMMC device serves as the response to command CMD1.
+The OCR content of the eMMC device serves as the response to command **CMD1**.
 
 * eMMC devices support two operating voltage ranges: 1.70 V ~ 1.95 V and 2.7 V ~ 3.6 V.
 * Byte access mode is more flexible and efficient, but is limited by the addressing bit limit and cannot access storage space exceeding 2 GB. Sector access uses a sector size of 512 bytes and can support storage capacities up to 256 GB.
@@ -80,7 +80,7 @@ The OCR content of the eMMC device serves as the response to command CMD1.
 | **Value** | `all 1` | `all 0` | `1` | `all 0` | `all 1` | `1` |
 
 ## Fast I/O (R4)
-Used as a response to command CMD39. Returns the contents of the device RCA register.
+Used as a response to command **CMD39**. Returns the contents of the device RCA register.
 
 | Field | Start bit | Transmission bit | Command index | RCA | Status | Register address | Read register contents | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -89,7 +89,7 @@ Used as a response to command CMD39. Returns the contents of the device RCA regi
 | **Value** | `0` | `0` | `100111b` | `x` | `x` | `x` | `x` | `x` | `1` |
 
 ## Interrupt Request (R5)
-Sets the system to enter interrupt mode; used as a response to command CMD40.
+Sets the system to enter interrupt mode; used as a response to command **CMD40**.
 
 | Field | Start bit | Transmission bit | Command index | RCA (winning) | Not defined | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
