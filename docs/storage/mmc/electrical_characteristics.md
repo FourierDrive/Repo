@@ -85,7 +85,7 @@ The bus includes a clock line, command line, and data lines. eMMC version 4.5 an
       <td>Supply voltage ground for I/O</td>
     </tr>
     <tr>
-      <td colspan="3"><strong>NOTE</strong> I: input; O: output; PP: push-pull; OD: open-drain; NC: Not connected (or logical high); S: power supply.</td>
+      <td colspan="3"><strong>NOTE</strong> I: input; O: output; PP: push-pull; OD: open-drain; S: power supply.</td>
     </tr>
   </tbody>
 </table>
