@@ -8,7 +8,7 @@ Communication between the host and the device is initiated by the host sending c
 
 ## General Format
 
-All commands and responses start with a logical '0' and end with a logical '1'. Each message is protected by a 7-bit CRC check, and the transmission order is most significant bit (MSB) first.
+All commands and responses start with a logical `0` and end with a logical `1`. Each message is protected by a 7-bit CRC check, and the transmission order is most significant bit (MSB) first.
 
 * All commands have a length of 48 bits.
 
@@ -31,13 +31,13 @@ All commands and responses start with a logical '0' and end with a logical '1'. 
 
 ### Field Name and Definition
 
-* **Start bit**: Indicates the start of command or response transmission; value is 0.
-* **Transmission bit/Direction**: Transmitted from host to device (command) has a value of 1; transmitted from device to host (response) has a value of 0.
-* **Command index**: Binary representation of the command index, supporting CMD0 ~ CMD63 (up to 64 commands).
+* **Start bit**: Indicates the start of command or response transmission; value is `0`.
+* **Transmission bit/Direction**: Transmitted from host to device (command) has a value of `1`; transmitted from device to host (response) has a value of `0`.
+* **Command index**: Binary representation of the command index, supporting `CMD0` ~ `CMD63` (up to 64 commands).
 * **Argument**: Some commands require parameters, such as address information.
 * **Content**: Responded command index, register contents, status information, etc.
 * **CRC7**: Error detection to ensure data integrity.
-* **End bit**: Indicates the end of command or response transmission; value is 1.
+* **End bit**: Indicates the end of command or response transmission; value is `1`.
 
 ## Command Types
 
