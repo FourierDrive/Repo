@@ -103,14 +103,11 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
       <td>SD: I/O/PP<br>SPI: -</td>
       <td>Data Line [Bit 2]</td>
     </tr>
+    <tr>
+      <td colspan="7"><strong>NOTE</strong> S: Power supply; I: Input; O: Output using push-pull drivers; PP: I/O using push-pull drivers.</td>
+    </tr>
   </tbody>
 </table>
-
-* **Signal Types**: 
-  * **S**: Power supply
-  * **I**: Input
-  * **O**: Output using push-pull drivers
-  * **PP**: I/O using push-pull drivers
 
 ## I/O Card Pin Definitions
 
@@ -119,7 +116,7 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
 <table>
   <thead>
     <tr>
-      <th colspan="6">SDIO Pin Definitions and Signal Types</th>
+      <th colspan="6">SDIO Pin Definitions</th>
     </tr>
     <tr>
       <th>Pin Number</th>
@@ -203,14 +200,11 @@ SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, an
       <td>SD: I/O/PP<br>SPI: -</td>
       <td>Data Line [Bit 2] / Read Wait signal</td>
     </tr>
+    <tr>
+      <td colspan="6"><strong>NOTE</strong> S: Power supply; I: Input; O: Output using push-pull drivers; PP: I/O using push-pull drivers.</td>
+    </tr>
   </tbody>
 </table>
-
-* **Signal Types**: 
-  * **S**: Power supply
-  * **I**: Input
-  * **O**: Output using push-pull drivers
-  * **PP**: I/O using push-pull drivers
 
 ## Signal Behaviors
 
