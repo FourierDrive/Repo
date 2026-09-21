@@ -29,8 +29,6 @@ All commands and responses start with a logical `0` and end with a logical `1`. 
 | **Position** | [135] | [134] | [133:8] | [7:1] | [0] |
 | **Length** | 1 bit | 1 bit | 126 bits | 7 bits | 1 bit |
 
-### Field Name and Definition
-
 * **Start bit**: Indicates the start of command or response transmission; value is `0`.
 * **Transmission bit/Direction**: Transmitted from host to device (command) has a value of `1`; transmitted from device to host (response) has a value of `0`.
 * **Command index**: Binary representation of the command index, supporting `CMD0` ~ `CMD63` (up to 64 commands).
