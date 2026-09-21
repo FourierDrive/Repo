@@ -175,6 +175,76 @@ Requests the selected device to enter the inactive state. No response is returne
 | **Length** | 1 bit | 1 bit | 6 bits | 16 bits | 16 bits | 7 bits | 1 bit |
 | **Value** | `0` | `1` | `001111b` | `x` | `all 0` | `x` | `1` |
 
+## SET_BLOCKLEN (CMD16)
+
+Sets the block length (in bytes) for all following block commands (read and write). Default block length is specified in the CSD.[cite: 1]
+
+| Field | Start bit | Transmission bit | Command index | Block length | CRC7 | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
+| **Value** | `0` | `1` | `010000b` | `x` | `x` | `1` |
+
+## READ_SINGLE_BLOCK (CMD17)
+
+Reads a block of the size selected by the SET_BLOCKLEN command[cite: 1].
+
+| Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
+| **Value** | `0` | `1` | `010001b` | `x` | `x` | `1` |
+
+## READ_MULTIPLE_BLOCK (CMD18)
+
+Continuously transfers data blocks from Device to host until interrupted by a stop command, or the requested number of data blocks is transmitted[cite: 1].
+
+| Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
+| **Value** | `0` | `1` | `010010b` | `x` | `x` | `1` |
+
+## SEND_TUNING_BLOCK (CMD21)
+
+128 clocks of tuning pattern (64 byte in 4 bit mode or 128 byte in 8 bit mode) is sent for HS200 optimal sampling point detection[cite: 1].
+
+| Field | Start bit | Transmission bit | Command index | Stuff bits | CRC7 | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
+| **Value** | `0` | `1` | `010101b` | `all 0` | `x` | `1` |
+
+## SET_BLOCK_COUNT (CMD23)
+
+Defines the number of blocks (read/write) and the reliable write parameter (write) for a block read or write command[cite: 2].
+
+| Field | Start bit | Transmission bit | Command index | Reliable Write Request | Reserved / Non-packed | Tag request | Context ID | Forced programming | Set to 0 | Number of blocks | CRC7 | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39] | [38] | [37] | [36:33] | [32] | [31:24] | [23:8] | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 1 bit | 1 bit | 1 bit | 4 bits | 1 bit | 8 bits | 16 bits | 7 bits | 1 bit |
+| **Value** | `0` | `1` | `010111b` | `0`: Normal write<br>`1`: Reliable write | `0` | `0`: No tag<br>`1`: Tag request | `0` to `15` | `0`: Disabled<br>`1`: Enabled | `all 0` | `x` | `x` | `1` |
+
+## WRITE_BLOCK (CMD24)
+
+Writes a block of the size selected by the SET_BLOCKLEN command[cite: 3].
+
+| Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
+| **Value** | `0` | `1` | `011000b` | `x` | `x` | `1` |
+
+## WRITE_MULTIPLE_BLOCK (CMD25)
+
+Continuously writes blocks of data until a STOP_TRANSMISSION follows or the requested number of block received[cite: 3].
+
+| Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
+| **Value** | `0` | `1` | `011001b` | `x` | `x` | `1` |
+
 ## APP_CMD (CMD55)
 
 Before sending any application-specific commands, this command must be sent to notify the device that the next command is an application command. It can only be sent after receiving response R1, and it is only valid for the immediate next command. If the device detects that the command following this is an application command, it executes the specific application function.
