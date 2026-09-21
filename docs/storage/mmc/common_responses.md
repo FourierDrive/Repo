@@ -54,6 +54,10 @@ Returns CID or CSD contents. CID register content is used in response to command
 | **Length** | 1 bit | 1 bit | 6 bits | 127 bits | 1 bit |
 | **Value** | `0` | `0` | `all 1` | `x` | `1` |
 
+The following example illustrates the detailed bit-field layout and typical values of a 128-bit CID register (as specified in Kioxia eMMC datasheets):
+
+![CID Register](./assets/cid_register.png)
+
 ## Extended CSD Register (EXT_CSD)
 Returns EXT_CSD register contents in response to command **CMD8**. Register contents are returned via **DATA0**.
 
