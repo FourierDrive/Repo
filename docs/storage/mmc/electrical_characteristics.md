@@ -17,6 +17,15 @@ To ensure power stability and signal integrity, external decoupling capacitors m
 
 ![eMMC Power Supply and Decoupling Architecture](./assets/electrical_characteristics_1.png)
 
+| Parameter | Symbol | Unit | Min. | Typ. | Max. | Remark |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **V<sub>DDi</sub> capacitor value** | C<sub>REG</sub> | μF | 0.10 | - | 2.2* | Except HS400 |
+| | | $\mu$F | 1.00 | - | 2.2* | HS400 |
+| **V<sub>cc</sub> capacitor value** | C<sub>Vcc</sub> | μF | - | 2.2 + 0.1 | - | |
+| **V<sub>ccq</sub> capacitor value** | C<sub>Vccq</sub> | μF | - | 2.2 + 0.1 | - | |
+
+*\*Note: Recommended typical value for C<sub>REG</sub>.*
+
 ## Pin Definitions
 
 The bus includes a clock line, command line, and data lines. eMMC version 4.5 and later versions added pins such as hardware reset and data strobe.
