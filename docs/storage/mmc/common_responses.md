@@ -2,14 +2,14 @@
 
 The eMMC standard defines that all response lengths depend on the response type, and the format of each response varies slightly. eMMC supports five response types, which are generally used to return corresponding register contents. The standard defines several fixed device registers:
 
-| Name | Width | Meaning | Implementation |
-| :--- | :--- | :--- | :--- |
-| **Card Identification (CID)** | 128 bits | Unique identifier for each device | Mandatory |
-| **Relative Card Address (RCA)** | 16 bits | Relative device address, dynamically allocated during initialization | Mandatory |
-| **Driver Stage Register (DSR)** | 16 bits | Configures device output drivers to adapt to different electrical characteristics | Optional |
-| **Card Specific Data (CSD)** | 128 bits | Device-specific data containing device operating conditions such as read/write speed, block size, etc. | Mandatory |
-| **Operation Conditions Register (OCR)** | 32 bits | Used in broadcast commands to identify device voltage types | Mandatory |
-| **Extended Card Specific Data (EXT_CSD)** | 512 bytes | Extended device-specific data, actual device configuration, etc. | Mandatory |
+| Name | Acronym | Width | Description | Implementation |
+| :--- | :--- | :--- | :--- | :--- |
+| Card Identification | CID | 128 bits | Unique identifier for each device | Mandatory |
+| Relative Card Address | RCA | 16 bits | Relative device address, dynamically allocated during initialization | Mandatory |
+| Driver Stage Register | DSR | 16 bits | Configures device output drivers to adapt to different electrical characteristics | Optional |
+| Card Specific Data | CSD | 128 bits | Device-specific data containing device operating conditions such as read/write speed, block size, etc. | Mandatory |
+| Operation Conditions Register | OCR | 32 bits | Used in broadcast commands to identify device voltage types | Mandatory |
+| Extended Card Specific Data | EXT_CSD | 512 bytes | Extended device-specific data, actual device configuration, etc. | Mandatory |
 
 ## Normal Response Command (R1/R1b)
 Returns the device status. **R1b** can optionally send a busy signal on the data line.
