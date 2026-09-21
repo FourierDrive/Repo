@@ -2,6 +2,8 @@
 
 The eMMC network consists of a host and a device, typically communicating between a single host and one or more devices.
 
+![eMMC System Overview](./assets/system_model_1.png)
+
 ## Host
 
 The host refers to the active communication party responsible for controlling and managing all interactions with external devices. The eMMC controller module is the hardware component on the host side used to communicate with the device, typically integrated on-chip, and is responsible for implementing the protocol stack, data transmission, and command/response processing. Host functions include:
