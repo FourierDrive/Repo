@@ -28,7 +28,7 @@ To ensure power stability and signal integrity, external decoupling capacitors m
 
 ## Pin Definitions
 
-The bus includes a clock line, command line, and data lines. eMMC version 4.5 and later versions added pins such as hardware reset and data strobe.
+The pin definitions and signal directions defined below are viewed from the eMMC device's perspective. The bus includes a clock line, command line, and data lines, while eMMC version 4.5 and later versions added dedicated pins such as hardware reset and data strobe.
 
 <table>
   <thead>
