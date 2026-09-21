@@ -19,10 +19,12 @@ To ensure power stability and signal integrity, external decoupling capacitors m
 
 | Parameter | Symbol | Unit | Min. | Typ. | Max. | Remark |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **V<sub>DDi</sub> capacitor value** | C<sub>REG</sub> | μF | 0.10 | - | 2.2 | Except HS400 |
-| | | μF | 1.00 | - | 2.2 | HS400 |
+| **V<sub>DDi</sub> capacitor value** | C<sub>REG</sub> | μF | 0.10 | - | 2.2* | Except HS400 |
+| | | μF | 1.00 | - | 2.2* | HS400 |
 | **V<sub>cc</sub> capacitor value** | C<sub>Vcc</sub> | μF | - | 2.2 + 0.1 | - | |
 | **V<sub>ccq</sub> capacitor value** | C<sub>Vccq</sub> | μF | - | 2.2 + 0.1 | - | |
+
+*\*Note: Recommended typical value for C<sub>REG</sub>.*
 
 ## Pin Definitions
 
