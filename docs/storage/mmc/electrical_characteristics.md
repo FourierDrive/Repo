@@ -6,7 +6,7 @@ This section outlines the power supply constraints, pin configurations, and sign
 
 The system voltage range and the constraint relationship between the core voltage (V<sub>cc</sub>) and the communication voltage (V<sub>ccq</sub>) are shown below. Note that the communication voltage is generally lower than the core voltage.
 
-| Core Voltage (V<sub>cc</sub>) \ Communication Voltage (V<sub>ccq</sub>) | 1.1 V ~ 1.3 V | 1.70 V ~ 1.95 V | 2.7 V ~ 3.6 V |
+| V<sub>cc</sub> \ V<sub>ccq</sub> | 1.1 V ~ 1.3 V | 1.70 V ~ 1.95 V | 2.7 V ~ 3.6 V |
 | :--- | :--- | :--- | :--- |
 | **1.70 V ~ 1.95 V** | Valid | Valid | - |
 | **2.7 V ~ 3.6 V** | Valid | Valid | Valid |
