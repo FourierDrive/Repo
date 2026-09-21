@@ -1,5 +1,9 @@
 # Electrical Characteristics
 
+This section outlines the power supply constraints, pin configurations, and signal behaviors for eMMC storage devices.
+
+## Power Supply
+
 The system voltage range and the constraint relationship between the core voltage ($V_{cc}$) and the communication voltage ($V_{ccq}$) are shown below. Note that the communication voltage is generally lower than the core voltage.
 
 | Core Voltage (V<sub>cc</sub>) \ Communication Voltage (V<sub>ccq</sub>) | 1.1 V ~ 1.3 V | 1.70 V ~ 1.95 V | 2.7 V ~ 3.6 V |
@@ -8,6 +12,8 @@ The system voltage range and the constraint relationship between the core voltag
 | **2.7 V ~ 3.6 V** | Valid | Valid | Valid |
 
 *Note: The 3.3 V communication voltage range is not supported under HS200 and HS400 speed modes.*
+
+## Pin Definitions
 
 The bus includes a clock line, command line, and data lines. eMMC version 4.5 and later versions added pins such as hardware reset and data strobe.
 
