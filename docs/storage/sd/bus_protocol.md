@@ -14,7 +14,7 @@ All commands and responses start with a transmission logic `0` and end with logi
 
 | Field | Start bit | Transmission bit/Direction | Command index | Argument | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Position** | `[47]` | `[46]` | `[45:40]` | `[39:8]` | `[7:1]` | `[0]` |
+| **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
 | **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
 
 * All responses can be categorized by length into short responses (48 bits) and long responses (136 bits).
@@ -22,13 +22,13 @@ All commands and responses start with a transmission logic `0` and end with logi
 | Response Format 48-bit | | | | |
 | :--- | :--- | :--- | :--- | :--- |
 | **Field** | Start bit | Transmission bit/Direction | Content | CRC7 | End bit |
-| **Position** | `[47]` | `[46]` | `[45:8]` | `[7:1]` | `[0]` |
+| **Position** | [47] | [46] | [45:8] | [7:1] | [0] |
 | **Length** | 1 bit | 1 bit | 38 bits | 7 bits | 1 bit |
 
 | Response Format 136-bit | | | | |
 | :--- | :--- | :--- | :--- | :--- |
 | **Field** | Start bit | Transmission bit/Direction | Content | CRC7 | End bit |
-| **Position** | `[135]` | `[134]` | `[133:8]` | `[7:1]` | `[0]` |
+| **Position** | [135] | [134] | [133:8] | [7:1] | [0] |
 | **Length** | 1 bit | 1 bit | 126 bits | 7 bits | 1 bit |
 
 ### Field Names and Descriptions
@@ -83,5 +83,5 @@ SDIO supports relatively few commands, and configuration of SDIO devices is prim
 | :--- | :--- | :--- |
 | **CMD0** | `CMD52` CCCR `06h`: RES | Memory card, I/O card, or combo card reset |
 | **CMD12** | `CMD52` CCCR `06h`: ASx | Terminate partial transmission (used by I/O cards in `CMD53` byte mode) |
-| **ACMD6** | `CMD52` CCCR `07h`: Bus Width `1:0` | Define data transmission bus width |
+| **ACMD6** | `CMD52` CCCR `07h`: Bus Width [1:0] | Define data transmission bus width |
 | **CMD17**<br>**CMD18**<br>**CMD24**<br>**CMD25** | `CMD53` | Data read/write commands |
