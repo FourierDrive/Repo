@@ -13,6 +13,10 @@ The system voltage range and the constraint relationship between the core voltag
 
 *Note: The 3.3 V communication voltage range is not supported under HS200 and HS400 speed modes.*
 
+To ensure power stability and signal integrity, external decoupling capacitors must be connected to the power lines (V<sub>cc</sub>, V<sub>ccq</sub>, and the internal regulator output V<sub>DDi</sub>). The recommended capacitor values and the internal power distribution architecture are illustrated below.
+
+![eMMC Power Supply and Decoupling Architecture](./assets/electrical_characteristics_1.png)
+
 ## Pin Definitions
 
 The bus includes a clock line, command line, and data lines. eMMC version 4.5 and later versions added pins such as hardware reset and data strobe.
