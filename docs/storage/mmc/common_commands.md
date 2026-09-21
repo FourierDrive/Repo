@@ -6,7 +6,7 @@ eMMC standard commands differ slightly from those defined by the SD standard, so
 
 The reset command. The host can send a reset command with an argument of `0x00000000` to make the device enter the idle state.
 
-* All commands with parameters other than `0xF0F0F0F0` or `0xFFFFFFFA` are treated as reset commands by CMD0.
+* All commands with parameters other than `0xF0F0F0F0` or `0xFFFFFFFA` are treated as reset commands by **CMD0**.
 
 | Field | Start bit | Transmission bit | Command index | Argument | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -36,7 +36,7 @@ The boot initiation command. This makes the device enter the boot mode, and the 
 
 ## SEND_OP_COND (CMD1)
 
-Requests devices in the idle state to send the contents of their operation condition register. Requires the device to return response R3.
+Requests devices in the idle state to send the contents of their operation condition register. Requires the device to return response **R3**.
 
 | Field | Start bit | Transmission bit | Command index | Argument | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -56,7 +56,7 @@ Requests all devices to send their Card Identification (CID) to the host. Each d
 
 ## SET_RELATIVE_ADDR (CMD3)
 
-Assigns a Relative Card Address (RCA) to the selected device. The device returns response R1.
+Assigns a Relative Card Address (RCA) to the selected device. The device returns response **R1**.
 
 * The relative card address assigned by the host typically increments starting from `1`, with address `0` reserved as the broadcast address.
 
@@ -78,7 +78,7 @@ Sets the Driver Stage Register (DSR).
 
 ## SLEEP_AWAKE (CMD5)
 
-Puts the selected device to sleep or wakes it up based on the relative card address to switch the device state. The device returns response R1b.
+Puts the selected device to sleep or wakes it up based on the relative card address to switch the device state. The device returns response **R1b**.
 
 | Field | Start bit | Transmission bit | Command index | RCA | Sleep/Awake | Stuff bits | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -88,7 +88,7 @@ Puts the selected device to sleep or wakes it up based on the relative card addr
 
 ## SWITCH (CMD6)
 
-Switches the operation mode of the selected device or modifies the corresponding Extended Card Specific Data (EXT_CSD) register. Requires the device to return response R1/R1b.
+Switches the operation mode of the selected device or modifies the corresponding Extended Card Specific Data (EXT_CSD) register. Requires the device to return response **R1/R1b**.
 
 | Field | Start bit | Transmission bit | Command index | Stuff bits | Access mode | Index | Value | Cmd set | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -98,7 +98,7 @@ Switches the operation mode of the selected device or modifies the corresponding
 
 ## SELECT/DESELECT_CARD (CMD7)
 
-Selects or deselects a device based on the relative card address to change its state. The device returns response R1/R1b.
+Selects or deselects a device based on the relative card address to change its state. The device returns response **R1/R1b**.
 
 * Sending any other relative card address will deselect the currently selected device and change its state.
 * If the device is in the programming state, it returns to the disconnect state, returning response R1b.
@@ -112,7 +112,7 @@ Selects or deselects a device based on the relative card address to change its s
 
 ## SEND_EXT_CSD (CMD8)
 
-Retrieves the contents of the selected device's EXT_CSD register. The device returns response R1 and sends the EXT_CSD register contents via data line DATA0.
+Retrieves the contents of the selected device's EXT_CSD register. The device returns response **R1** and sends the EXT_CSD register contents via data line **DATA0**.
 
 | Field | Start bit | Transmission bit | Command index | Stuff bits | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -122,7 +122,7 @@ Retrieves the contents of the selected device's EXT_CSD register. The device ret
 
 ## SEND_CSD (CMD9)
 
-Requests the selected device to send its Card-Specific Data (CSD) to the host. The content is returned via response R2.
+Requests the selected device to send its Card-Specific Data (CSD) to the host. The content is returned via response **R2**.
 
 | Field | Start bit | Transmission bit | Command index | RCA | Stuff bits | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -132,7 +132,7 @@ Requests the selected device to send its Card-Specific Data (CSD) to the host. T
 
 ## SEND_CID (CMD10)
 
-Requests the selected device to send its Card Identification (CID) to the host. The content is returned via response R2.
+Requests the selected device to send its Card Identification (CID) to the host. The content is returned via response **R2**.
 
 | Field | Start bit | Transmission bit | Command index | RCA | Stuff bits | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -142,10 +142,10 @@ Requests the selected device to send its Card Identification (CID) to the host. 
 
 ## STOP_TRANSMISSION (CMD12)
 
-Forces the selected device to stop data transmission. The device returns response R1/R1b.
+Forces the selected device to stop data transmission. The device returns response **R1/R1b**.
 
-* All read commands can be interrupted at any time by this command, and the device returns to the transfer state, returning response R1.
-* All write commands can be aborted by this command, but it needs to be sent before command CMD7, returning response R1b.
+* All read commands can be interrupted at any time by this command, and the device returns to the transfer state, returning response **R1**.
+* All write commands can be aborted by this command, but it needs to be sent before command **CMD7**, returning response **R1b**.
 
 | Field | Start bit | Transmission bit | Command index | RCA | Stuff bits | HPI | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -155,7 +155,7 @@ Forces the selected device to stop data transmission. The device returns respons
 
 ## SEND_STATUS (CMD13)
 
-Requests the selected device to send its Status Register or Queue Status Register (QSR) contents. The device returns response R1/R1b.
+Requests the selected device to send its Status Register or Queue Status Register (QSR) contents. The device returns response **R1/R1b**.
 
 * Primarily used to monitor device status during data transmission or operations to ensure transmission normalcy and device reliability.
 
@@ -177,7 +177,7 @@ Requests the selected device to enter the inactive state. No response is returne
 
 ## SET_BLOCKLEN (CMD16)
 
-Sets the block length (in bytes) for all following block commands (read and write). Default block length is specified in the CSD.[cite: 1]
+Sets the block length (in bytes) for all following block commands (read and write). Default block length is specified in the CSD.
 
 | Field | Start bit | Transmission bit | Command index | Block length | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -187,7 +187,7 @@ Sets the block length (in bytes) for all following block commands (read and writ
 
 ## READ_SINGLE_BLOCK (CMD17)
 
-Reads a block of the size selected by the SET_BLOCKLEN command[cite: 1].
+Reads a block of the size selected by the SET_BLOCKLEN command.
 
 | Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -197,7 +197,7 @@ Reads a block of the size selected by the SET_BLOCKLEN command[cite: 1].
 
 ## READ_MULTIPLE_BLOCK (CMD18)
 
-Continuously transfers data blocks from Device to host until interrupted by a stop command, or the requested number of data blocks is transmitted[cite: 1].
+Continuously transfers data blocks from Device to host until interrupted by a stop command, or the requested number of data blocks is transmitted.
 
 | Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -207,7 +207,7 @@ Continuously transfers data blocks from Device to host until interrupted by a st
 
 ## SEND_TUNING_BLOCK (CMD21)
 
-128 clocks of tuning pattern (64 byte in 4 bit mode or 128 byte in 8 bit mode) is sent for HS200 optimal sampling point detection[cite: 1].
+128 clocks of tuning pattern (64 byte in 4 bit mode or 128 byte in 8 bit mode) is sent for HS200 optimal sampling point detection.
 
 | Field | Start bit | Transmission bit | Command index | Stuff bits | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -217,7 +217,7 @@ Continuously transfers data blocks from Device to host until interrupted by a st
 
 ## SET_BLOCK_COUNT (CMD23)
 
-Defines the number of blocks (read/write) and the reliable write parameter (write) for a block read or write command[cite: 2].
+Defines the number of blocks (read/write) and the reliable write parameter (write) for a block read or write command.
 
 | Field | Start bit | Transmission bit | Command index | Reliable Write Request | Reserved / Non-packed | Tag request | Context ID | Forced programming | Set to 0 | Number of blocks | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -227,7 +227,7 @@ Defines the number of blocks (read/write) and the reliable write parameter (writ
 
 ## WRITE_BLOCK (CMD24)
 
-Writes a block of the size selected by the SET_BLOCKLEN command[cite: 3].
+Writes a block of the size selected by the SET_BLOCKLEN command.
 
 | Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -237,7 +237,7 @@ Writes a block of the size selected by the SET_BLOCKLEN command[cite: 3].
 
 ## WRITE_MULTIPLE_BLOCK (CMD25)
 
-Continuously writes blocks of data until a STOP_TRANSMISSION follows or the requested number of block received[cite: 3].
+Continuously writes blocks of data until a STOP_TRANSMISSION follows or the requested number of block received.
 
 | Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -247,7 +247,7 @@ Continuously writes blocks of data until a STOP_TRANSMISSION follows or the requ
 
 ## APP_CMD (CMD55)
 
-Before sending any application-specific commands, this command must be sent to notify the device that the next command is an application command. It can only be sent after receiving response R1, and it is only valid for the immediate next command. If the device detects that the command following this is an application command, it executes the specific application function.
+Before sending any application-specific commands, this command must be sent to notify the device that the next command is an application command. It can only be sent after receiving response **R1**, and it is only valid for the immediate next command. If the device detects that the command following this is an application command, it executes the specific application function.
 
 | Field | Start bit | Transmission bit | Command index | Stuff bits | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -257,7 +257,7 @@ Before sending any application-specific commands, this command must be sent to n
 
 ## FAST_IO (CMD39)
 
-Accesses a single device register to read or write a single byte. Requires the device to return response R4.
+Accesses a single device register to read or write a single byte. Requires the device to return response **R4**.
 
 | Field | Start bit | Transmission bit | Command index | RCA | Register write flag | Register address | Register data | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -267,7 +267,7 @@ Accesses a single device register to read or write a single byte. Requires the d
 
 ## GO_IRQ_STATE (CMD40)
 
-Requests the system to enter interrupt mode. Requires the device to return response R5.
+Requests the system to enter interrupt mode. Requires the device to return response **R5**.
 
 | Field | Start bit | Transmission bit | Command index | Argument | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
