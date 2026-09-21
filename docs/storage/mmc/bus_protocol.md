@@ -52,20 +52,27 @@ According to functionality, commands can be divided into multiple categories. Ea
 
 | Command Index | Command Type | Corresponding Response | Brief Description | Command Category |
 | :--- | :--- | :--- | :--- | :--- |
-| CMD0 | bc/- | - | Reset / Start | class 0 |
-| CMD1 | bcr | R3 | Get operating conditions | class 0 |
-| CMD2 | bcr | R2 | Notify all devices to return identifier | class 0 |
-| CMD3 | ac | R1 | Assign relative address to selected device | class 0 |
-| CMD4 | bc | - | Set device driver stage register | class 0 |
-| CMD5 | ac | R1b | Sleep/awake selected device | class 0 |
-| CMD6 | ac | R1b | Switch device mode or configure extended device-specific data register | class 0 |
-| CMD7 | ac | R1/R1b | Select/deselect device | class 0 |
-| CMD8 | adtc | R1 | Get extended device-specific data | class 0 |
-| CMD9 | ac | R2 | Get selected device-specific parameters | class 0 |
-| CMD10 | ac | R2 | Get selected device identifier | class 0 |
-| CMD12 | ac | R1/R1b | Force selected device to stop transmission | class 0 |
-| CMD13 | ac | R1 | Selected device sends current status | class 0 |
-| CMD15 | ac | - | Selected device enters inactive state | class 0 |
-| CMD55 | ac | R1 | Application command prefix | class 8 |
-| CMD39 | ac | R4 | Access single register | class 9 |
-| CMD40 | bcr | R5 | System enters interrupt mode | class 9 |
+| **CMD0** | bc/- | - | Reset / Start | class 0 |
+| **CMD1** | bcr | R3 | Get operating conditions | class 0 |
+| **CMD2** | bcr | R2 | Notify all devices to return identifier | class 0 |
+| **CMD3** | ac | R1 | Assign relative address to selected device | class 0 |
+| **CMD4** | bc | - | Set device driver stage register | class 0 |
+| **CMD5** | ac | R1b | Sleep/awake selected device | class 0 |
+| **CMD6** | ac | R1b | Switch device mode or configure extended device-specific data register | class 0 |
+| **CMD7** | ac | R1/R1b | Select/deselect device | class 0 |
+| **CMD8** | adtc | R1 | Get extended device-specific data | class 0 |
+| **CMD9** | ac | R2 | Get selected device-specific parameters | class 0 |
+| **CMD10** | ac | R2 | Get selected device identifier | class 0 |
+| **CMD12** | ac | R1/R1b | Force selected device to stop transmission | class 0 |
+| **CMD13** | ac | R1 | Selected device sends current status | class 0 |
+| **CMD15** | ac | - | Selected device enters inactive state | class 0 |
+| **CMD16** | ac | R1 | Set block length for block data transfers | class 2 |
+| **CMD17** | adtc | R1 | Read single data block | class 2 |
+| **CMD18** | adtc | R1 | Read multiple data blocks | class 2 |
+| **CMD21** | adtc | R1 | Send tuning block for HS200 mode | class 2 |
+| **CMD23** | ac | R1 | Set block count for pre-erased multiple-block read/write | class 4 |
+| **CMD24** | adtc | R1 | Write single data block | class 4 |
+| **CMD25** | adtc | R1 | Write multiple data blocks | class 4 |
+| **CMD39** | ac | R4 | Access single register | class 9 |
+| **CMD40** | bcr | R5 | System enters interrupt mode | class 9 |
+| **CMD55** | ac | R1 | Application command prefix | class 8 |
