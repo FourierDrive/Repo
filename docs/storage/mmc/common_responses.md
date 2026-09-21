@@ -18,18 +18,18 @@ Returns the device status. R1b can optionally send a busy signal on the data lin
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Position** | [47] | [46] | [45:40] | [39:8] | [7:1] | [0] |
 | **Length** | 1 bit | 1 bit | 6 bits | 32 bits | 7 bits | 1 bit |
-| **Value** | 0 | 0 | Sequence number of the responded command | See definition table | x | 1 |
+| **Value** | `0` | `0` | Sequence number of the responded command | See definition table | `x` | `1` |
 
 ### Common Device Status Bits
 
 | Position | Identifier | Type | Meaning | Value | Clear Condition |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **[23]** | COM_CRC_ERROR | E R | Previous command CRC check | 0: No error<br>1: Error | B |
-| **[22]** | ILLEGAL_COMMAND | E R | Legality of command for current device state | 0: Legal<br>1: Illegal | B |
-| **[19]** | ERROR | E X | Unknown error during operation | 0: No error<br>1: Error | B |
+| **[23]** | COM_CRC_ERROR | E R | Previous command CRC check | `0`: No error<br>`1`: Error | B |
+| **[22]** | ILLEGAL_COMMAND | E R | Legality of command for current device state | `0`: Legal<br>`1`: Illegal | B |
+| **[19]** | ERROR | E X | Unknown error during operation | `0`: No error<br>`1`: Error | B |
 | **[12:9]** | CURRENT_STATE | S R | Current device state | Refer to mode state table | A |
-| **[8]** | READY_FOR_DATA | S R | Bus signal | 0: Not ready<br>1: Ready to receive data | A |
-| **[5]** | APP_CMD | S R | Device waiting to receive application command | 0: Not ready to receive<br>1: Ready to receive | A |
+| **[8]** | READY_FOR_DATA | S R | Bus signal | `0`: Not ready<br>`1`: Ready to receive data | A |
+| **[5]** | APP_CMD | S R | Device waiting to receive application command | `0`: Not ready to receive<br>`1`: Ready to receive | A |
 
 **Type Definitions:**
 * **E:** Error bit
@@ -52,7 +52,7 @@ Returns CID or CSD contents. CID register content is used in response to command
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Position** | [135] | [134] | [133:128] | [127:1] (CID or CSD [127:1]) | [0] |
 | **Length** | 1 bit | 1 bit | 6 bits | 127 bits | 1 bit |
-| **Value** | 0 | 0 | all 1 | x | 1 |
+| **Value** | `0` | `0` | `all 1` | `x` | `1` |
 
 ## Extended CSD Register (EXT_CSD)
 Returns EXT_CSD register contents in response to command CMD8. Register contents are returned via DATA0.
@@ -71,13 +71,13 @@ The OCR content of the eMMC device serves as the response to command CMD1.
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Position** | [47] | [46] | [45:40] | [39] (OCR [31]) | [38:37] (OCR [30:29]) | [36:32] (OCR [28:24]) |
 | **Length** | 1 bit | 1 bit | 6 bits | 1 bit | 2 bits | 5 bits |
-| **Value** | 0 | 0 | all 1 | 0: Device state initialization not complete<br>1: Device state initialization complete | 00b: Byte mode<br>10b: Sector mode | all 0 |
+| **Value** | `0` | `0` | `all 1` | `0`: Device state initialization not complete<br>`1`: Device state initialization complete | `00b`: Byte mode<br>`10b`: Sector mode | `all 0` |
 
 | Field | Vccq voltage window (2.7 V ~ 3.6 V) | Vccq voltage window (2.0 V ~ 2.6 V) | Vccq voltage window (1.70 V ~ 1.95 V) | Reserved | Check bits | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Position** | [31:23] (OCR [23:15]) | [22:16] (OCR [14:8]) | [15] (OCR [7]) | [14:8] (OCR [6:0]) | [7:1] | [0] |
 | **Length** | 9 bits | 7 bits | 1 bit | 7 bits | 7 bits | 1 bit |
-| **Value** | all 1 | all 0 | 1 | all 0 | all 1 | 1 |
+| **Value** | `all 1` | `all 0` | `1` | `all 0` | `all 1` | `1` |
 
 ## Fast I/O (R4)
 Used as a response to command CMD39. Returns the contents of the device RCA register.
@@ -86,7 +86,7 @@ Used as a response to command CMD39. Returns the contents of the device RCA regi
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Position** | [47] | [46] | [45:40] | [39:24] (RCA [31:16]) | [23] (RCA [15]) | [22:16] (RCA [14:8]) | [15:8] (RCA [7:0]) | [7:1] | [0] |
 | **Length** | 1 bit | 1 bit | 6 bits | 16 bits | 1 bit | 7 bits | 8 bits | 7 bits | 1 bit |
-| **Value** | 0 | 0 | 100111b | x | x | x | x | x | 1 |
+| **Value** | `0` | `0` | `100111b` | `x` | `x` | `x` | `x` | `x` | `1` |
 
 ## Interrupt Request (R5)
 Sets the system to enter interrupt mode; used as a response to command CMD40.
@@ -95,4 +95,4 @@ Sets the system to enter interrupt mode; used as a response to command CMD40.
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Position** | [47] | [46] | [45:40] | [39:24] (RCA [31:16]) | [23:8] (RCA [15:0]) | [7:1] | [0] |
 | **Length** | 1 bit | 1 bit | 6 bits | 16 bits | 16 bits | 7 bits | 1 bit |
-| **Value** | 0 | 0 | 101000b | x | all 0 returned by host | x | 1 |
+| **Value** | `0` | `0` | `101000b` | `x` | `all 0` returned by host | `x` | `1` |
