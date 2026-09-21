@@ -2,7 +2,7 @@
 
 This section outlines the pin definitions, interface signal allocations, and operational modes for SD memory cards and SDIO devices.
 
-## Memory Card Pin Definitions
+## Memory Card Interface Definitions
 
 While SD cards and microSD cards differ in physical appearance, size, and pin definitions, their core signal functions remain consistent across formats.
 
@@ -20,7 +20,7 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
 
 *NOTE: S: Power supply; I: Input; O: Output using push-pull drivers; PP: I/O using push-pull drivers.*
 
-## I/O Card Pin Definitions
+## I/O Card Interface Definitions
 
 SDIO supports multiple data transfer modes, including 4-bit mode, 1-bit mode, and SPI mode. Unlike standard memory cards, SDIO allows peripheral devices to signal asynchronous interrupts back to the host controller.
 
