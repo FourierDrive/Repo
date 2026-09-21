@@ -67,17 +67,11 @@ The OCR content of the eMMC device serves as the response to command **CMD1**.
 * eMMC devices support two operating voltage ranges: 1.70 V ~ 1.95 V and 2.7 V ~ 3.6 V.
 * Byte access mode is more flexible and efficient, but is limited by the addressing bit limit and cannot access storage space exceeding 2 GB. Sector access uses a sector size of 512 bytes and can support storage capacities up to 256 GB.
 
-| Field | Start bit | Transmission bit | Check bits | Card power up status bit (busy) | Access mode | Reserved |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Position** | [47] | [46] | [45:40] | [39] (OCR [31]) | [38:37] (OCR [30:29]) | [36:32] (OCR [28:24]) |
-| **Length** | 1 bit | 1 bit | 6 bits | 1 bit | 2 bits | 5 bits |
-| **Value** | `0` | `0` | `all 1` | `0`: Device state initialization not complete<br>`1`: Device state initialization complete | `00b`: Byte mode<br>`10b`: Sector mode | `all 0` |
-
-| Field | Vccq voltage window (2.7 V ~ 3.6 V) | Vccq voltage window (2.0 V ~ 2.6 V) | Vccq voltage window (1.70 V ~ 1.95 V) | Reserved | Check bits | End bit |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Position** | [31:23] (OCR [23:15]) | [22:16] (OCR [14:8]) | [15] (OCR [7]) | [14:8] (OCR [6:0]) | [7:1] | [0] |
-| **Length** | 9 bits | 7 bits | 1 bit | 7 bits | 7 bits | 1 bit |
-| **Value** | `all 1` | `all 0` | `1` | `all 0` | `all 1` | `1` |
+| Field | Start bit | Transmission bit | Check bits | Card power up status bit (busy) | Access mode | Reserved | Vccq voltage window (2.7 V ~ 3.6 V) | Vccq voltage window (2.0 V ~ 2.6 V) | Vccq voltage window (1.70 V ~ 1.95 V) | Reserved | Check bits | End bit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Position** | [47] | [46] | [45:40] | [39] (OCR [31]) | [38:37] (OCR [30:29]) | [36:32] (OCR [28:24]) | [31:23] (OCR [23:15]) | [22:16] (OCR [14:8]) | [15] (OCR [7]) | [14:8] (OCR [6:0]) | [7:1] | [0] |
+| **Length** | 1 bit | 1 bit | 6 bits | 1 bit | 2 bits | 5 bits | 9 bits | 7 bits | 1 bit | 7 bits | 7 bits | 1 bit |
+| **Value** | `0` | `0` | `all 1` | `0`: Not complete<br>`1`: Complete | `00b`: Byte<br>`10b`: Sector | `all 0` | `all 1` | `all 0` | `1` | `all 0` | `all 1` | `1` |
 
 ## Fast I/O (R4)
 Used as a response to command **CMD39**. Returns the contents of the device RCA register.
