@@ -15,7 +15,7 @@ The system voltage range and the constraint relationship between the core voltag
 
 To ensure power stability and signal integrity, external decoupling capacitors must be connected to the power lines (V<sub>cc</sub>, V<sub>ccq</sub>, and the internal regulator output V<sub>DDi</sub>). The recommended capacitor values and the internal power distribution architecture are illustrated below.
 
-![eMMC Power Supply and Decoupling Architecture](./assets/electrical_characteristics_1.png)
+![eMMC Power Supply Architecture](./assets/emmc_power_supply_architecture.png)
 
 | Parameter | Symbol | Unit | Min. | Typ. | Max. | Remark |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
