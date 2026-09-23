@@ -42,11 +42,8 @@ Returns the device status. **R1b** can optionally send a busy signal on the data
 * **B:** Related to the previous command; cleared upon receiving a valid command
 
 ## CID / CSD Register (R2)
-Returns CID or CSD contents. CID register content is used in response to commands **CMD2** and **CMD10**. CSD register content is used in response to command **CMD9**.
 
-* CID contains information such as the device manufacturer, device name, serial number, revision, production year, etc.
-* The Card Command Class (CCC) [95:84] field bits of the CSD register indicate the command classes it supports.
-* Refer to standard definitions for specific field meanings of CID and CSD.
+Returns CID or CSD contents. CID register content is used in response to commands **CMD2** and **CMD10**. CSD register content is used in response to command **CMD9**.
 
 | Field | Start bit | Transmission bit | Check bits | CID or CSD register include internal CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -54,9 +51,40 @@ Returns CID or CSD contents. CID register content is used in response to command
 | **Length** | 1 bit | 1 bit | 6 bits | 127 bits | 1 bit |
 | **Value** | `0` | `0` | `all 1` | `x` | `1` |
 
-The following example illustrates the detailed bit-field layout and typical values of a 128-bit CID register (as specified in Kioxia eMMC datasheets):
+The CID contains unchangeable information such as the device manufacturer, device name, serial number, revision, and production year.
 
 ![CID Register](./assets/cid_register.png)
+
+The following example illustrates the detailed bit-field layout and typical values of a 128-bit CID register (as specified in Kioxia eMMC datasheets):
+
+![CID Register Example](./assets/cid_register_example.png)
+
+The CSD register defines the device's operating conditions, such as data transfer speed, maximum data block length, and supported command classes.
+
+![CSD Register](./assets/csd_register.png)
+
+* **Data Read Access-Time-1 (TAAC) [119:112]**: Defines the asynchronous part of the read access time.
+* **Data Read Access-Time-2 in CLK cycles (NSAC) [111:104]**: Defines the synchronous part of the read access time (clock-dependent).
+
+![TAAC Bitfield](./assets/taac_bitfield.png)
+
+* **Max. Data Transfer Rate (TRAN_SPEED) [103:96]**: Specifies the maximum data transfer rate per line (e.g., standard speed, high speed).
+
+![TRAN_SPEED Bitfield](./assets/tran_speed_bitfield.png)
+
+* **Card Command Class (CCC) [95:84]**: Indicates the command classes supported by the device.
+
+![CCC Bitfield](./assets/ccc_bitfield.png)
+
+* **Max. Read Data Block Length (READ_BL_LEN) [83:80]**: Defines the maximum allocated block length for read operations.
+
+![READ_BL_LEN Bitfield](./assets/read_bl_len_bitfield.png)
+
+***Note**: For the complete bit-field definitions and remaining parameters of the CSD register, please refer to the specific JEDEC standard specifications.*
+
+The following example illustrates a CSD register configuration (based on Kioxia eMMC datasheets) showing specific values for these key fields:
+
+![CSD Register Example](./assets/csd_register_example.png)
 
 ## Extended CSD Register (EXT_CSD)
 Returns EXT_CSD register contents in response to command **CMD8**. Register contents are returned via **DATA0**.
