@@ -86,6 +86,11 @@ The following example illustrates a CSD register configuration (based on Kioxia 
 
 ![CSD Register Example](./assets/csd_register_example.png)
 
+* **TAAC [119:112]**: Value is `0x5E`, resulting in an asynchronous data read access time of 30 ms.
+* **TRAN_SPEED [103:96]**: Value is `0x32`, resulting in a maximum bus clock frequency of 200 Mbit/s.
+* **CCC [95:84]**: Value is `0x0F5`, supporting command classes Class 0, 2, 4, 5, 6, and 8.
+* **READ_BL_LEN [83:80]**: Value is `0x9`, resulting in a maximum read data block length of 512 bytes.
+
 ## Extended CSD Register (EXT_CSD)
 Returns EXT_CSD register contents in response to command **CMD8**. Register contents are returned via **DATA0**.
 
