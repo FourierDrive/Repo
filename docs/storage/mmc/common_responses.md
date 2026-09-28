@@ -100,7 +100,7 @@ The following partial example illustrates the structure of the EXT_CSD register:
 ![EXT_CSD Register Partial](./assets/ext_csd_register_partial.png)
 
 * The upper 320 bytes contain device attribute information, which are read-only registers and cannot be modified by the host.
-* The lower 192 bytes are the Modes segment, that defines the configuration the Device is working in. These modes can be changed by the host by means of the SWITCH command (`CMD6`).
+* The lower 192 bytes are the modes segment, that defines the configuration the device is working in. These modes can be changed by the host by means of the SWITCH command (`CMD6`).
 
 * **DRIVER_STRENGTH [197]**: Indicates the I/O driver strength types that are supported by a device.
 
