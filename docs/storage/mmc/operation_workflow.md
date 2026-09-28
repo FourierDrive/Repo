@@ -99,7 +99,7 @@ The eMMC standard defines five system operation modes, encompassing both the hos
 
 ## Device Identification
 
-After power-on, the host resets or boots all devices, identifies them, and assigns relative card addresses. This entire process uses only the command line for transmission, with a default clock frequency ($f_{od}$) of 0 ~ 400 kHz.
+After power-on, the host resets or boots all devices, identifies them, and assigns relative card addresses. This entire process uses only the command line for transmission, with a default clock frequency (f<sub>od</sub>) of 0 ~ 400 kHz.
 
 * If the device supports boot mode, the host sends the software reset command `CMD0`, pulls the command line low, and waits for 1 millisecond or at least 74 clock cycles until the power supply stabilizes. It then sends the boot initiation command `CMD0` to make the device enter boot mode. Upon entering boot mode, the device reads data from the boot partition according to the settings in the `BOOT_PARTITION_ENABLE` byte of the `EXT_CSD` register and sends it to the host via the data lines.
 * If the boot sequence is not triggered, the reset command `CMD0` software-resets the device post-power-on to ensure all devices enter the idle state. Following the reset, the host no longer needs to determine the device's power supply voltage range; the host and device exchange command responses in a fixed manner to indicate supported capacities.
@@ -110,12 +110,12 @@ After power-on, the host resets or boots all devices, identifies them, and assig
 
 ## Data Transfer
 
-Data read and write operations can only be performed when the device is in the data transfer mode. Both command and data lines operate in push-pull output mode, and the clock frequency is $f_{pp}$. Multiple state transition relationships exist between the host and device:
+Data read and write operations can only be performed when the device is in the data transfer mode. Both command and data lines operate in push-pull output mode, and the clock frequency is f<sub>pp</sub>. Multiple state transition relationships exist between the host and device:
 
 * While in the stand-by state, the host can send command `CMD40` to make the device enter interrupt mode. When the device receives an internal interrupt event, it returns a response to the host, then switches to data transfer mode, awaiting subsequent data read/write commands from the host.
 * While in the stand-by state, the host can send command `CMD5` to put the device into a low-power sleep state. Sending command `CMD5` can similarly cause the device to exit the sleep state.
 * While in the stand-by state, the host can send command `CMD4` to configure the device's DSR register.
-* Before acquiring the contents of the device's CSD register, the clock frequency $f_{pp}$ remains at $f_{od}$. The host can send command `CMD9` and wait for the device to reply with response R2 to obtain the CSD register contents.
+* Before acquiring the contents of the device's CSD register, the clock frequency f<sub>pp</sub> remains at f<sub>od</sub>. The host can send command `CMD9` and wait for the device to reply with response R2 to obtain the CSD register contents.
 * While in the stand-by state, the host can send command `CMD7` to select or deselect a designated device. Devices cannot perform data communication while in the stand-by state because multiple devices on the bus may be in stand-by; a target device must be selected via its relative card address to enter the transfer state before data communication can occur.
 * If the version indicated in the returned CSD register contents is greater than 4.0, it denotes a high-speed device supporting commands to operate the `EXT_CSD` register. The host can then send command `CMD8` to retrieve the `EXT_CSD` register contents.
 * While in the transfer state, the host can send command `CMD6` to configure device attributes such as bus width (`EXT_CSD` reg offset: `0xB7`) and high-speed interface (`EXT_CSD` reg offset: `0xB9`).
