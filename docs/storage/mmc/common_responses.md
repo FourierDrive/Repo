@@ -92,11 +92,50 @@ The following example illustrates a portion of a CSD register configuration (bas
 * **READ_BL_LEN [83:80]**: Value is `0x9`, resulting in a maximum read data block length of 512 bytes.
 
 ## Extended CSD Register (EXT_CSD)
+
 Returns EXT_CSD register contents in response to command **CMD8**. Register contents are returned via **DATA0**.
 
+The following partial example illustrates the structure of the EXT_CSD register:
+
+![EXT_CSD Register Partial](./assets/ext_csd_register_partial.png)
+
 * The upper 320 bytes contain device attribute information, which are read-only registers and cannot be modified by the host.
-* The lower 192 bytes reflect the configuration of the device under its current working mode.
-* Refer to standard definitions for specific field meanings of EXT_CSD.
+* The lower 192 bytes are the Modes segment, that defines the configuration the Device is working in. These modes can be changed by the host by means of the SWITCH command (`CMD6`).
+
+* **DRIVER_STRENGTH [197]**: Indicates the I/O driver strength types that are supported by a device.
+
+![DRIVER_STRENGTH Bitfield](./assets/driver_strength_bitfield.png)
+
+![IO Driver Definition](./assets/io_driver_definition.png)
+
+* **Device Type (DEVICE_TYPE) [196]**: Defines the type of the Device and its supported speeds and voltages.
+
+![DEVICE_TYPE Bitfield](./assets/device_type_bitfield.png)
+
+* **HS Timing (HS_TIMING) [185]**: Used by the host to select both the Timing Interface and Driver Strength.
+
+![HS_TIMING Bitfield](./assets/hs_timing_bitfield_h.png)
+
+![HS_TIMING Bitfield](./assets/hs_timing_bitfield_l.png)
+
+* **Bus Width (BUS_WIDTH) [183]**: Defines the bus width configuration (set to `0` or 1-bit data bus after power up).
+
+![BUS_WIDTH Bitfield](./assets/bus_width_bitfield.png)
+
+* **Power-Off Notification (POWER_OFF_NOTIFICATION) [34]**: Allows the host to notify the device before the device is powered off.
+
+![POWER_OFF_NOTIFICATION Bitfield](./assets/power_off_notification_bitfield.png)
+
+***Note**: An e•MMC device should be able to guard against sudden power loss even when `POWER_OFF_NOTIFICATION` is set to `0x01` (`POWER_ON`), since unintentional power loss events may still occur. Values not defined in the standard are invalid and setting them will result in a `SWITCH_ERROR`.*
+
+***Note** Refer to standard definitions for specific field meanings of EXT_CSD.*
+
+The following example illustrates a portion of an EXT_CSD register configuration (based on Kioxia eMMC datasheets) showing specific values for key fields in this range:
+
+![EXT_CSD Register Example](./assets/ext_csd_register_example.png)
+
+* **DRIVER_STRENGTH [197]**: Value is `0x1F`, indicating the device supported all the driver strength types for the I/O pads.
+* **DEVICE_TYPE [196]**: Value is `0x57`, indicating the device does not support 1.2 V voltage modes in any speed mode.
 
 ## OCR Register (R3)
 
