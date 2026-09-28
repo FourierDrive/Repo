@@ -99,6 +99,7 @@ Returns EXT_CSD register contents in response to command **CMD8**. Register cont
 * Refer to standard definitions for specific field meanings of EXT_CSD.
 
 ## OCR Register (R3)
+
 The OCR content of the eMMC device serves as the response to command **CMD1**.
 
 | Field | Start bit | Transmission bit | Check bits | Card power up status bit (busy) | Access mode | Reserved | Vccq voltage window (2.7 V ~ 3.6 V) | Vccq voltage window (2.0 V ~ 2.6 V) | Vccq voltage window (1.70 V ~ 1.95 V) | Reserved | Check bits | End bit |
@@ -107,11 +108,21 @@ The OCR content of the eMMC device serves as the response to command **CMD1**.
 | **Length** | 1 bit | 1 bit | 6 bits | 1 bit | 2 bits | 5 bits | 9 bits | 7 bits | 1 bit | 7 bits | 7 bits | 1 bit |
 | **Value** | `0` | `0` | `all 1` | `0`: Not complete<br>`1`: Complete | `00b`: Byte<br>`10b`: Sector | `all 0` | `all 1` | `all 0` | `1` | `all 0` | `all 1` | `1` |
 
+The bit-field layout and length definitions of the OCR register are structured as follows:
+
 ![OCR Register](./assets/ocr_register.png)
 
 * eMMC devices support two operating voltage ranges: 1.70 V ~ 1.95 V and 2.7 V ~ 3.6 V.
 * Byte access mode is more flexible and efficient, but is limited by the addressing bit limit and cannot access storage space exceeding 2 GB. Sector access uses a sector size of 512 bytes and can support storage capacities up to 256 GB.
 * Through the 'wired-and' operation on the CMD line, if at least one device is still busy (holding the line low), the combined response yields `LOW`.
+
+The following example illustrates a practical OCR register configuration (based on Kioxia eMMC datasheets):
+
+![OCR Register Example](./assets/ocr_register_example.png)
+
+* **Supported Voltage Ranges**: As shown in the configuration, the device supports the **1.70 V ~ 1.95 V** range (bit [7] is `1b`) and the **2.7 V ~ 3.6 V** range (bits [23:15] are `1 1111 1111b`), whereas the 2.0 V ~ 2.6 V range is not supported (`000 0000b`).
+* **Access Mode**: Bits [30:29] are configured as `10b`, indicating that the device operates in **Sector Access Mode**.
+
 
 ## Fast I/O (R4)
 Used as a response to command **CMD39**. Returns the contents of the device RCA register.
