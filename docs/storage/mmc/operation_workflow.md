@@ -6,24 +6,91 @@ During communication between the host and the device, they may be in different o
 
 The eMMC standard defines five system operation modes, encompassing both the host and the device. In each operation mode, the device exists in one or more states, transitioned via control commands. The corresponding command line (CMD) mode may also differ.
 
-| Operation Mode | Device State | CMD Line Mode | Current Device State Field Encoding |
-| :--- | :--- | :--- | :--- |
-| **Inactive mode** | Inactive state | Open-drain | - |
-| **Boot mode** | Pre-idle state | - | - |
-| | Pre-boot state | - | - |
-| **Device identification mode** | Idle state | Open-drain | `0000b` |
-| | Ready state | | `0001b` |
-| | Identification state | | `0010b` |
-| **Data transfer mode** | Stand-by state | Push-pull | `0011b` |
-| | Sleep state | | `1010b` |
-| | Transfer state | | `0100b` |
-| | Bus-test state | | `1001b` |
-| | Sending-data state | | `0101b` |
-| | Receive-data state | | `0110b` |
-| | Programming state | | `0111b` |
-| | Disconnect state | | `1000b` |
-| **Boot mode** | Boot state | - | - |
-| **Interrupt mode** | Wait-IRQ State | Open-drain | - |
+<table>
+  <thead>
+    <tr>
+      <th>Operation Mode</th>
+      <th>Device State</th>
+      <th>CMD Line Mode</th>
+      <th>Current Device State Field Encoding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Inactive mode</strong></td>
+      <td>Inactive state</td>
+      <td rowspan="6">Open-drain</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Boot mode</strong></td>
+      <td>Pre-idle state</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Pre-boot state</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>Device identification mode</strong></td>
+      <td>Idle state</td>
+      <td><code>0000b</code></td>
+    </tr>
+    <tr>
+      <td>Ready state</td>
+      <td><code>0001b</code></td>
+    </tr>
+    <tr>
+      <td>Identification state</td>
+      <td><code>0010b</code></td>
+    </tr>
+    <tr>
+      <td rowspan="8"><strong>Data transfer mode</strong></td>
+      <td>Stand-by state</td>
+      <td rowspan="9">Push-pull</td>
+      <td><code>0011b</code></td>
+    </tr>
+    <tr>
+      <td>Sleep state</td>
+      <td><code>1010b</code></td>
+    </tr>
+    <tr>
+      <td>Transfer state</td>
+      <td><code>0100b</code></td>
+    </tr>
+    <tr>
+      <td>Bus-test state</td>
+      <td><code>1001b</code></td>
+    </tr>
+    <tr>
+      <td>Sending-data state</td>
+      <td><code>0101b</code></td>
+    </tr>
+    <tr>
+      <td>Receive-data state</td>
+      <td><code>0110b</code></td>
+    </tr>
+    <tr>
+      <td>Programming state</td>
+      <td><code>0111b</code></td>
+    </tr>
+    <tr>
+      <td>Disconnect state</td>
+      <td><code>1000b</code></td>
+    </tr>
+    <tr>
+      <td><strong>Boot mode</strong></td>
+      <td>Boot state</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>Interrupt mode</strong></td>
+      <td>Wait-IRQ State</td>
+      <td>Open-drain</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
 
 * After power-on, the device can enter Boot Mode or Device Identification Mode by receiving specific commands, while the host accesses all devices on the bus. Devices requiring communication enter Data Transfer Mode after receiving specific commands, and the host enters Data Transfer Mode once all devices on the bus have been identified.
 * Boot mode can be skipped; it is used to check device health status (such as temperature and voltage) and load configuration information including capacity, sector size, and bad block tables.
