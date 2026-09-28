@@ -108,11 +108,11 @@ The following partial example illustrates the structure of the EXT_CSD register:
 
 ![IO Driver Definition](./assets/io_driver_definition.png)
 
-* **Device Type (DEVICE_TYPE) [196]**: Defines the type of the Device and its supported speeds and voltages.
+* **Device Type (DEVICE_TYPE) [196]**: Defines the type of the device and its supported speeds and voltages.
 
 ![DEVICE_TYPE Bitfield](./assets/device_type_bitfield.png)
 
-* **HS Timing (HS_TIMING) [185]**: Used by the host to select both the Timing Interface and Driver Strength.
+* **High Speed Timing (HS_TIMING) [185]**: Used by the host to select both the timing interface and driver strength.
 
 ![HS_TIMING Bitfield](./assets/hs_timing_bitfield_h.png)
 
@@ -128,14 +128,14 @@ The following partial example illustrates the structure of the EXT_CSD register:
 
 ***Note**: An e•MMC device should be able to guard against sudden power loss even when `POWER_OFF_NOTIFICATION` is set to `0x01` (`POWER_ON`), since unintentional power loss events may still occur. Values not defined in the standard are invalid and setting them will result in a `SWITCH_ERROR`.*
 
-***Note** Refer to standard definitions for specific field meanings of EXT_CSD.*
+***Note**: Refer to standard definitions for specific field meanings of EXT_CSD.*
 
 The following example illustrates a portion of an EXT_CSD register configuration (based on Kioxia eMMC datasheets) showing specific values for key fields in this range:
 
 ![EXT_CSD Register Example](./assets/ext_csd_register_example.png)
 
 * **DRIVER_STRENGTH [197]**: Value is `0x1F`, indicating the device supported all the driver strength types for the I/O pads.
-* **DEVICE_TYPE [196]**: Value is `0x57`, indicating the device does not support 1.2 V voltage modes in any speed mode.
+* **DEVICE_TYPE [196]**: Value is `0x57`, indicating the device does not support 1.2 V voltage modes across any speed mode.
 
 ## OCR Register (R3)
 
@@ -173,7 +173,7 @@ Used as a response to command **CMD39**. Returns the contents of the device RCA 
 | **Value** | `0` | `0` | `100111b` | `x` | `x` | `x` | `x` | `x` | `1` |
 
 ## Interrupt Request (R5)
-Sets the system to enter interrupt mode; used as a response to command **CMD40**.
+Sets the system to enter interrupt mode, used as a response to command **CMD40**.
 
 | Field | Start bit | Transmission bit | Command index | RCA (winning) | Not defined | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
