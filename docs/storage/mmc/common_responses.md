@@ -159,8 +159,8 @@ The following example illustrates a practical OCR register configuration (based 
 
 ![OCR Register Example](./assets/ocr_register_example.png)
 
-* **Supported Voltage Ranges**: As shown in the configuration, the device supports the **1.70 V ~ 1.95 V** range (bit [7] is `1b`) and the **2.7 V ~ 3.6 V** range (bits [23:15] are `1 1111 1111b`), whereas the 2.0 V ~ 2.6 V range is not supported (`000 0000b`).
-* **Access Mode**: Bits [30:29] are configured as `10b`, indicating that the device operates in **Sector Access Mode**.
+* **Supported Voltage Ranges**: As shown in the configuration, the device supports the 1.70 V ~ 1.95 V range (bit [7] is `1b`) and the 2.7 V ~ 3.6 V range (bits [23:15] are `1 1111 1111b`), whereas the 2.0 V ~ 2.6 V range is not supported (`000 0000b`).
+* **Access Mode**: Bits [30:29] are configured as `10b`, indicating that the device operates in Sector Access Mode.
 
 
 ## Fast I/O (R4)
