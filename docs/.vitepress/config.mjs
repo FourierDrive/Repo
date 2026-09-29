@@ -13,7 +13,7 @@ export default {
           items: [
             {
               text: 'NAND Flash',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: 'Terminology', link: '/storage/nandflash/terminology' },
                 { text: 'Controller Interface', link: '/storage/nandflash/controller_interface' },
@@ -42,7 +42,8 @@ export default {
                 { text: 'Bus Protocol', link: '/storage/mmc/bus_protocol' },
                 { text: 'Common Commands', link: '/storage/mmc/common_commands' },
                 { text: 'Common Responses', link: '/storage/mmc/common_responses' },                
-                { text: 'Operation Workflow', link: '/storage/mmc/operation_workflow' }
+                { text: 'Operation Workflow', link: '/storage/mmc/operation_workflow' },
+                { text: 'Sampling Tuning Mechanism', link: '/storage/mmc/sampling_tuning_mechanism' }
               ]
             },
             {
