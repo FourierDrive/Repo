@@ -7,7 +7,7 @@ When the eMMC device enters the **HS200 mode** or **HS400 mode**, the host execu
 * The tuning frequency and specific implementation depend on the host and system design considerations.
 * It is recommended to perform the tuning procedure whenever the device wakes up from sleep state to avoid temperature change caused phase variation drift
 
-## Sampling Point Tuning Scheme
+## Tuning Scheme
 
 Upon a host request, the device transmits a data block containing a known tuning pattern to help the host optimize its data line sampling. 
 
@@ -15,7 +15,7 @@ Upon a host request, the device transmits a data block containing a known tuning
 * The **Send Tuning Block** command (`CMD21`) is valid only in HS200 mode and only when the device is unlocked (Password Lock), being treated as an illegal command in any other state. It returns an `R1` response, and since the data block following `CMD21` is fixed, `CMD16` is not required to precede it.
 * The execution follows the timing of a single block read command, during which the host may send a sequence of `CMD21` commands until tuning is complete. The device is guaranteed to complete a sequence of 40 `CMD21` executions within 150 ms, exclusive of any host overhead.
 
-## Sampling Tuning Sequence
+## Tuning Sequence
 
 * The Sampling Control Block of the host is reset.
 * The host issues the command `CMD21` to read the tuning block.
