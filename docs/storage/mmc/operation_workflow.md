@@ -14,7 +14,7 @@ The eMMC standard defines five system operation modes, encompassing both the hos
       <th>Operation Mode</th>
       <th>Device State</th>
       <th>Command Line Mode</th>
-      <th>Current Device State Field Encoding</th>
+      <th>Device State Field Encoding</th>
     </tr>
   </thead>
   <tbody>
