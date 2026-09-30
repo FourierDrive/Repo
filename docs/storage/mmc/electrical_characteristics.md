@@ -28,6 +28,10 @@ To ensure power stability and signal integrity, external decoupling capacitors m
 
 ## Interface Definitions
 
+The eMMC bus has eleven communication lines:
+
+![Bus Circuitry Diagram](./assets/bus_circuitry_diagram.png)
+
 The pin definitions and signal directions defined below are viewed from the eMMC device's perspective. The bus includes a clock line, command line, and data lines, while eMMC version 4.5 and later versions added dedicated pins such as hardware reset and data strobe.
 
 | Name | Type* | Description |
