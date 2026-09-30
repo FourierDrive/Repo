@@ -4,14 +4,14 @@ During communication between the host and the device, they may be in different o
 
 ## Mode States
 
-The eMMC standard defines five system operation modes, encompassing both the host and the device. In each operation mode, the device exists in one or more states, transitioned via control commands. The corresponding command line (CMD) mode may also differ.
+The eMMC standard defines five system operation modes, encompassing both the host and the device. In each operation mode, the device exists in one or more states, transitioned via control commands. The corresponding command line mode may also differ.
 
 <table>
   <thead>
     <tr>
       <th>Operation Mode</th>
       <th>Device State</th>
-      <th>CMD Line Mode</th>
+      <th>Command Line Mode</th>
       <th>Current Device State Field Encoding</th>
     </tr>
   </thead>
@@ -92,20 +92,20 @@ The eMMC standard defines five system operation modes, encompassing both the hos
   </tbody>
 </table>
 
-* After power-on, the device can enter Boot Mode or Device Identification Mode by receiving specific commands, while the host accesses all devices on the bus. Devices requiring communication enter Data Transfer Mode after receiving specific commands, and the host enters Data Transfer Mode once all devices on the bus have been identified.
-* Boot mode can be skipped; it is used to check device health status (such as temperature and voltage) and load configuration information including capacity, sector size, and bad block tables.
-* The host and device simultaneously enter and exit Interrupt Mode to service interrupt requests originating from either the device or the host.
-* The device enters Inactive State when its operating voltage or access mode is invalid. The host can also force the device into Inactive State by sending specific commands, particularly when the device is unaccessed for long periods, to lower power consumption and extend device life.
+* After power-on, the device can enter **boot mode** or **device identification mode** by receiving specific commands, while the host accesses all devices on the bus. Devices requiring communication enter **data transfer mode** after receiving specific commands, and the host enters **data transfer mode** once all devices on the bus have been identified.
+* **Boot mode** can be skipped, it is used to check device health status (such as temperature and voltage) and load configuration information including capacity, sector size, and bad block tables.
+* The host and device simultaneously enter and exit **interrupt mode** to service interrupt requests originating from either the device or the host.
+* The device enters **inactive state** when its operating voltage or access mode is invalid. The host can also force the device into **inactive state** by sending specific commands, particularly when the device is unaccessed for long periods, to lower power consumption and extend device life.
 
 ## Device Identification
 
-After power-on, the host resets or boots all devices, identifies them, and assigns relative card addresses. This entire process uses only the command line for transmission, with a default clock frequency (f<sub>od</sub>) of 0 ~ 400 kHz.
+After power-on, the host resets or boots all devices, identifies them, and assigns relative card addresses. This entire process uses only the command line for transmission, with a default clock frequency f<sub>od</sub> of 0 ~ 400 kHz.
 
-* If the device supports boot mode, the host sends the software reset command `CMD0`, pulls the command line low, and waits for 1 millisecond or at least 74 clock cycles until the power supply stabilizes. It then sends the boot initiation command `CMD0` to make the device enter boot mode. Upon entering boot mode, the device reads data from the boot partition according to the settings in the `BOOT_PARTITION_ENABLE` byte of the `EXT_CSD` register and sends it to the host via the data lines.
-* If the boot sequence is not triggered, the reset command `CMD0` software-resets the device post-power-on to ensure all devices enter the idle state. Following the reset, the host no longer needs to determine the device's power supply voltage range; the host and device exchange command responses in a fixed manner to indicate supported capacities.
-* The host shall continuously send the open-drain command `CMD1` for 1 second until all devices respond with R3 where the card power-up status bit is 1, indicating that startup is complete. If it times out and cannot receive a response, the host should exit sending and close the bus, causing the device to enter the inactive state. For devices previously able to respond to command `CMD1`, the returned response R3 should reflect their corresponding access mode, at which point the device enters the ready state.
-* Once startup is complete, the host sends command `CMD2` to obtain the device-unique card identification (CID). Unidentified devices send response R2 returning their CID. The host detects bits on the line in real-time; non-matching devices stop sending and remain in the ready state, while matching devices enter the identification state.
-* Afterwards, the host sends command `CMD3` to assign a relative card address (RCA) to the matched device. The RCA is shorter than the CID, making it easier for subsequent addressing in transfer mode. Once the RCA is received, the device enters the stand-by state, no longer responds to identification flow commands, and switches its output mode from open-drain to push-pull.
+* If the device supports **boot mode**, the host sends the software reset command `CMD0`, pulls the command line low, and waits for 1 millisecond or at least 74 clock cycles until the power supply stabilizes. It then sends the boot initiation command `CMD0` to make the device enter **boot mode**. Upon entering **boot mode**, the device reads data from the boot partition according to the settings in the `BOOT_PARTITION_ENABLE` byte of the `EXT_CSD` register and sends it to the host via the data lines.
+* If the boot sequence is not triggered, the reset command `CMD0` software-resets the device post-power-on to ensure all devices enter the **idle state**. Following the reset, the host no longer needs to determine the device's power supply voltage range, the host and device exchange command responses in a fixed manner to indicate supported capacities.
+* The host shall continuously send the open-drain command `CMD1` for 1 second until all devices respond with `R3` where the card power-up status bit is `1`, indicating that startup is complete. If it times out and cannot receive a response, the host should exit sending and close the bus, causing the device to enter the **inactive state**. For devices previously able to respond to command `CMD1`, the returned response `R3` should reflect their corresponding access mode, at which point the device enters the **ready state**.
+* Once startup is complete, the host sends command `CMD2` to obtain the device-unique card identification (CID). Unidentified devices send response `R2` returning their CID. The host detects bits on the line in real-time, non-matching devices stop sending and remain in the **ready state**, while matching devices enter the **identification state**.
+* Afterwards, the host sends command `CMD3` to assign a relative card address (RCA) to the matched device. The RCA is shorter than the CID, making it easier for subsequent addressing in **transfer mode**. Once the RCA is received, the device enters the **stand-by state**, no longer responds to identification flow commands, and switches its output mode from open-drain to push-pull.
 * The host repeatedly sends commands `CMD2` and `CMD3` to identify all devices on the bus.
 
 ## Data Transfer
