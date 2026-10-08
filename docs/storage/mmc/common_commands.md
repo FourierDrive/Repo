@@ -197,7 +197,7 @@ Reads a block of the size selected by the SET_BLOCKLEN command.
 
 ## READ_MULTIPLE_BLOCK (CMD18)
 
-Continuously transfers data blocks from Device to host until interrupted by a stop command, or the requested number of data blocks is transmitted.
+Continuously transfers data blocks from device to host until interrupted by a stop command, or the requested number of data blocks is transmitted.
 
 | Field | Start bit | Transmission bit | Command index | Data address | CRC7 | End bit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
