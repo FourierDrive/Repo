@@ -95,7 +95,7 @@ The following example illustrates a portion of a CSD register configuration (bas
 
 Returns EXT_CSD register contents in response to command **CMD8**. Register contents are returned via **DATA0**.
 
-The following partial example illustrates the structure of the EXT_CSD register:
+The following example illustrates the partial structure of the EXT_CSD register:
 
 ![EXT_CSD Register Partial](./assets/ext_csd_register_partial.png)
 
