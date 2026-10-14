@@ -15,8 +15,8 @@ export default {
               text: 'NAND Flash',
               collapsed: true,
               items: [
-                { text: 'Terminology', link: '/storage/nandflash/terminology' },
-                { text: 'Controller Interface', link: '/storage/nandflash/controller_interface' },
+                { text: 'Overview', link: '/storage/nandflash/overview' },
+                { text: 'Electrical Characteristics', link: '/storage/nandflash/electrical_characteristics' },
                 { text: 'Read Operations', link: '/storage/nandflash/read_operations' },
                 { text: 'Program Operations', link: '/storage/nandflash/program_operations' },
                 { text: 'Erase Operations', link: '/storage/nandflash/erase_operations' },
