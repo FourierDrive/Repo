@@ -30,6 +30,12 @@ To mitigate bit-flips and maintain high data integrity, NAND Flash architectures
 
 When physical failures occur during operation, the system must execute structured block replacement and address translation strategies to isolate damaged memory cells.
 
+| Operation | Detection and recommended procedure |
+| :--- | :--- |
+| Erase | Status read after erase → Block Replacement |
+| Program | Status read after program → Block Replacement |
+| Read | Verify ECC $\rightarrow$ ECC correction|
+
 * **Failure Modes & Action**: In the case of status read failures after an erase or program operation, block replacement must be done. Because program status failure during a page program does not affect data in other pages of the same block, replacement can be executed with a page-sized buffer by finding an erased empty block, copying valid pages to the new block, and reprogramming the current target data.
-* **Driver Space Allocation**: For a typical 128MB NAND flash chip (such as K9F1G08U0D), the driver reserves 10 blocks as a swap area for seamless data writing, and 50 blocks dedicated to bad block management.
+* **Driver Space Allocation**: For a typical 128MB NAND flash chip, the driver reserves 10 blocks as a swap area for seamless data writing, and 50 blocks dedicated to bad block management.
 * **Address Re-mapping Logic**: When an address is accessed, the driver first checks the bad block table. If the bad block count is 0, the original address is returned. If the current access matches the block of the last successful re-mapping, the cached re-mapped address is used directly. Otherwise, the driver performs a binary search within the sorted bad block table to map the healthy alternative block.
