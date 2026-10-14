@@ -34,7 +34,7 @@ When physical failures occur during operation, the system must execute structure
 | :--- | :--- |
 | Erase | Status read after erase → Block Replacement |
 | Program | Status read after program → Block Replacement |
-| Read | Verify ECC $\rightarrow$ ECC correction|
+| Read | Verify ECC → ECC correction|
 
 * **Failure Modes & Action**: In the case of status read failures after an erase or program operation, block replacement must be done. Because program status failure during a page program does not affect data in other pages of the same block, replacement can be executed with a page-sized buffer by finding an erased empty block, copying valid pages to the new block, and reprogramming the current target data.
 * **Driver Space Allocation**: For a typical 128MB NAND flash chip, the driver reserves 10 blocks as a swap area for seamless data writing, and 50 blocks dedicated to bad block management.
