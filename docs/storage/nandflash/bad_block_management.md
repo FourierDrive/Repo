@@ -1,17 +1,17 @@
 # Bad Block Management
 
-This section covers the reliability challenges, error handling mechanisms, and lifecycle block management strategies inherent to NAND Flash technology, detailing how software layers handle physical degradation and data corruption.
+This section covers the reliability challenges, error handling mechanisms, and lifecycle block management strategies inherent to NAND flash technology, detailing how software layers handle physical degradation and data corruption.
 
 ## Degradation Nature
 
-Inherent manufacturing and operational degradation distinguish NAND Flash from NOR Flash. While NOR Flash arrays ship from the factory perfectly clean and rarely develop bad blocks during their lifespan, NAND Flash chips have strict physical limitations.
+Inherent manufacturing and operational degradation distinguish NAND flash from NOR flash. While NOR flash arrays ship from the factory perfectly clean and rarely develop bad blocks during their lifespan, NAND flash chips have strict physical limitations.
 
-* **Factory Defect (Initial Invalid Blocks)**: NAND Flash chips ship with factory bad blocks due to cost-driven yield allowances. Initial invalid blocks contain one or more initial invalid bits whose reliability is not guaranteed, though they share the same quality level and electrical characteristics as valid blocks without affecting their performance. The 1st block (placed at 00h block address) is guaranteed to be a valid block at the time of shipment, and any intentional erasure of original bad block information is prohibited.
-* **Operational Wear (Worn-Out Bad Blocks)**: Under continuous wear and the accumulation of erase and program cycles, NAND Flash devices develop new bad blocks dynamically. To maintain system reliability, active Flash Translation Layer (FTL) software management and structured replacement algorithms are required.
+* **Factory Defect (Initial Invalid Blocks)**: NAND flash chips ship with factory bad blocks due to cost-driven yield allowances. Initial invalid blocks contain one or more initial invalid bits whose reliability is not guaranteed, though they share the same quality level and electrical characteristics as valid blocks without affecting their performance. The 1st block (placed at 00h block address) is guaranteed to be a valid block at the time of shipment, and any intentional erasure of original bad block information is prohibited.
+* **Operational Wear (Worn-Out Bad Blocks)**: Under continuous wear and the accumulation of erase and program cycles, NAND flash devices develop new bad blocks dynamically. To maintain system reliability, active Flash Translation Layer (FTL) software management and structured replacement algorithms are required.
 
 ## Bit-Flip Susceptibility
 
-NAND Flash is highly susceptible to read/write disturb noise and charge leakage, making bit-flips (where a bit changes from 1 to 0 or 0 to 1) relatively common compared to NOR Flash. 
+NAND flash is highly susceptible to read/write disturb noise and charge leakage, making bit-flips (where a bit changes from 1 to 0 or 0 to 1) relatively common compared to NOR flash. 
 
 * **Drifting Effects**: Cell voltage values slowly shift and deviate over time from their original programmed levels.
 * **Program-Disturb Errors (Over-Program Effect)**: Executing a program operation on a specific page unintentionally causes bit shifts in other non-related pages within the same block.
