@@ -7,3 +7,11 @@ The page program operation sequence programs data into a page, ranging from a si
 * **Program Execute (10h)**: Commits the buffer content to the specified physical page. The operation is initiated by driving CS# low, shifting the 10h opcode followed by 8 dummy clocks and the 16-bit page address. Once CS# goes high, a self-timed cycle begins with a duration of tPROG or tPROG_ECC (typically ranging from 200μs to 700μs). Following this command, the data in the data buffer is no longer valid, and the WEL bit is automatically cleared. This operation requires sequential page programming within a block, and is prohibited if the page is protected or if the page has already been partially programmed.
 * **Status Monitoring (0Fh)**: Issues the Get Features command to read the status register, allowing the driver to verify the outcome of the operation and ensure the programming cycle finished successfully.
 * **Random Program Data Load (84h/34h)**: Performs the same data loading function as the standard load command but updates only the specific bytes provided in the input sequence. The rest of the data buffer remains unchanged, allowing for partial page updates. This command is also used during internal data move operations, after reading the source page content into the cache register via a Page Read (13h) command, one or more Random Program Data Load commands can be issued to modify specific bytes before committing the final data with the Write Enable (06h) and Program Execute (10h) sequence.
+
+## Addressing for Program Operation
+
+Within a block, the pages must be programmed consecutively from the least significant bit (LSB) page of the block to the most significant bit (MSB) pages of the block. 
+
+* **Sequential Order**: Pages must be programmed consecutively from the LSB page to the MSB page within a target block.
+* **Start Page (LSB Page)**: The LSB page is defined as the start page among the pages to be programmed, and it does not need to be page 0 in the block.
+* **Prohibition**: Random page address programming is strictly prohibited.
