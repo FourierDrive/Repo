@@ -1,4 +1,6 @@
-# Controller Interface
+# Electrical Characteristics
+
+## Controller Interface
 
 The Flash Controller IP represents the internal MCU peripheral logic responsible for translating host register commands into raw physical pin signaling across the SPI/QSPI bus.
 
