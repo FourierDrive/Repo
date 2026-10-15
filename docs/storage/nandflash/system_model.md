@@ -1,6 +1,6 @@
-# Overview
+# System Model
 
-This section provides a foundational understanding of NAND flash memory, covering its fundamental physical storage principles, hierarchical architectural organization, and internal block diagram components.
+This section provides a foundational model of NAND flash memory, covering its fundamental physical storage principles, hierarchical architectural organization, and internal block diagram components.
 
 ## Physical Structure
 
@@ -36,7 +36,7 @@ Based on the hardware block diagram, a serial NAND flash device integrates sever
 
 ![Block Diagram](./assets/block_diagram.png)
 
-* **NAND Flash Memory Core**: Characterized by series cell connections. It trades off random access capabilities for massive storage density. It cannot perform byte-addressable reads or support XIP, instead, it operates strictly as a page-addressable block device, requiring data to be copied into RAM before execution.
+* **NAND Flash Array**: Characterized by series cell connections. It trades off random access capabilities for massive storage density. It cannot perform byte-addressable reads or support XIP, instead, it operates strictly as a page-addressable block device, requiring data to be copied into RAM before execution.
 * **Data Buffer or Page Buffer / Cache**: Volatile SRAM cache residing directly on the flash chip. This is the static memory workbench physically located on the external storage silicon. It temporarily buffers page-sized data during random load programs or page reads before data is committed to the physical floating-gate cells.
 * **Serial NAND Controller**: Manages internal command dispatch, serial bus communications (CLK, CS#, SIO0-SIO3), and coordinates data transfer between the host interface and internal memory arrays.
 * **ECC and Status Register**: Hardware logic dedicated to error detection/correction and status monitoring, ensuring data reliability and operational state tracking.
