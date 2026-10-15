@@ -1,4 +1,4 @@
-# System Model
+# Physical Characteristics
 
 This section provides a foundational model of NAND flash memory, covering its fundamental physical storage principles, hierarchical architectural organization, and internal block diagram components.
 
