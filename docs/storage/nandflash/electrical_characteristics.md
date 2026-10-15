@@ -29,4 +29,4 @@ The serial NAND flash device communicates with the host controller through dedic
 | **NC** | NC | Not connected: Not internally connected, can be driven or floated. |
 | **DQS** | O | Data Strobe Signal Output: Available only for BGA24 packages to synchronize data output. |
 
-*NOTE: I: input; O: output; PP: push-pull; OD: open-drain; NC: Not connected (or logical high); S: power supply.*
+*NOTE: I: input; O: output; NC: Not connected (or logical high); S: power supply.*
