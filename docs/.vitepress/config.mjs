@@ -16,6 +16,7 @@ export default {
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/storage/nandflash/overview' },
+                { text: 'System Model', link: '/storage/nandflash/system_model' },
                 { text: 'Electrical Characteristics', link: '/storage/nandflash/electrical_characteristics' },
                 { text: 'Read Operations', link: '/storage/nandflash/read_operations' },
                 { text: 'Program Operations', link: '/storage/nandflash/program_operations' },
