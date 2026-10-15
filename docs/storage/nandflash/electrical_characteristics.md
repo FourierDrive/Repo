@@ -6,7 +6,7 @@ This section outlines the physical pin configurations, interface definitions, an
 
 The pin definitions and signal directions defined below are viewed from the NAND Flash device's perspective. The bus includes a clock line, chip select, and serial data/IO lines, with optional hardware protection and strobe signals.
 
-| Name | Type | Description |
+| Name | Type* | Description |
 | :--- | :--- | :--- |
 | **CS#** | I | Chip Select input, active low |
 | **SI / SIO0** | I/O | Serial Data Input / SIO0 |
