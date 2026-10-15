@@ -10,7 +10,7 @@ During this period, different flash memory manufacturers employed varying propri
 
 ## Standards
 
-To resolve compatibility and integration issues, the industry established two major standard camps for NAND flash: **ONFI** and **Toggle**.
+To resolve compatibility and integration issues, the industry established two major standard camps for NAND flash:
 
 * **Open NAND Flash Interface (ONFI)**: Established in 2006 by a consortium including Intel, Micron, Hynix, Phison, SanDisk, Sony, and Lexar (formerly Lexar/Micron/etc.), ONFI aimed to standardize the physical interface, pinouts, package footprints, control commands, register sets, and ECC support for NAND flash devices. ONFI 1.0 was released in December 2006, boosting legacy bandwidth from 40 MB/s to 50 MB/s while establishing a unified specification to ease developer burdens.
 * **Toggle Mode**: Initiated by Samsung and Toshiba, Toggle Mode represents the alternative major high-speed interface standard that utilizes a bidirectional data strobe (DQS) and double-data-rate (DDR) signaling protocol to achieve high performance without relying on traditional synchronous clock feedback architectures.
