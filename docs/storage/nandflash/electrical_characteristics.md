@@ -1,6 +1,6 @@
 # Electrical Characteristics
 
-This section outlines the physical pin configurations, interface definitions, and signal behaviors for SPI/QSPI bus communications with the serial NAND Flash device.
+This section outlines the physical pin configurations, interface definitions, and signal behaviors for SPI/QSPI bus communications with the serial NAND flash device.
 
 ## Interface Definitions
 
