@@ -16,7 +16,7 @@ The flash controller IP represents the internal MCU peripheral logic responsible
 
 The serial NAND flash device communicates with the host controller through dedicated hardware pins, supporting standard SPI, Dual SPI, and Quad SPI operations.
 
-| Name | Type | Description |
+| Name | Type* | Description |
 | :--- | :--- | :--- |
 | **CS#** | I | Chip Select: Enables and disables device operation. When CS# is high, the device is deselected and data output pins are at high impedance. Must transition from high to low after power-up before instructions are accepted. |
 | **SI / SIO0** | I/O | Serial Data Input / SIO0: Unidirectional data input for standard SPI, bidirectional data line (IO0) for Dual and Quad SPI operations. |
