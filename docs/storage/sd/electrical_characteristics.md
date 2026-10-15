@@ -8,7 +8,7 @@ While SD cards and microSD cards differ in physical appearance, size, and pin de
 
 ![Card Interface](./assets/card_interface.png)
 
-| Pin Number | SD Card (SD Mode) | SD Card (SPI Mode) | microSD Card (SD Mode) | microSD Card (SPI Mode) | Type (SD / SPI) | Description |
+| Pin Number | SD Card (SD Mode) | SD Card (SPI Mode) | microSD Card (SD Mode) | microSD Card (SPI Mode) | Type* (SD / SPI) | Description |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **1** | CD/DAT3 | CS | DAT2 | Reserved | SD: I/O/PP<br>SPI: I | Card Detect / Data Line [Bit 3] / Chip Select |
 | **2** | CMD | DI | DAT3 | CS | SD: I/O/PP<br>SPI: I | Command / Response / Data In / Chip Select |
