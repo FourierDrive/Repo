@@ -15,5 +15,10 @@ The flash controller IP represents the internal MCU/SoC peripheral logic respons
 
 This layer manages the internal control state, feature configurations, and execution tracking implemented directly within the external NAND flash silicon.
 
-- **Operation In Progress (OIP)**: Macroscopic tracking of external silicon execution. While the host controller IP becomes free quickly after delivering a command, the external flash chip remains busy for milliseconds executing high-voltage physical erasure or program execution. The software must poll the OIP bit in the external chip status register.
-- **Feature Registers & Status Monitoring**: The flash device provides internal volatile/non-volatile registers accessed via Get Features (0Fh) and Set Features (1Fh) commands. These registers manage configurations such as block protection, driver strength, and status flags (e.g., WEL, OIP, and ECC error status) to ensure reliable operational state tracking.
+* **Operation in Progress (OIP)**: A read-only status bit that tracks when the device is executing internal operations such as page reads, program executes, or block erasures.
+* **Program/Erase Failure (P-FAIL, E-FAIL)**: Status bits that indicate whether internally controlled program or erase operations completed successfully, or if commands were incorrectly issued to protected blocks.
+* **Write Enable Latch (WEL)**: A read-only status bit that tracks whether the device is write-enabled before executing program or erase operations.
+* **ECC Status and Configuration (ECCS, ECC-E, ECC-M)**: Status bits and configuration options used to monitor data integrity, verify error corrections, and manage internal error correction modes.
+* **OTP Access and Protection (OTP-E, OTP-L)**: Configuration bits that control access mode permissions to the OTP area and allow permanent locking of critical data once programmed.
+* **Quad Enable Bit (QE)**: A configuration bit that switches the device into Quad I/O mode, which repurposes specific pins and disables standard write protect or hold functions.
+* **Output Driver Strength (DRV)**: Configuration bits used to adjust the output signal drive strength capabilities of the device.
