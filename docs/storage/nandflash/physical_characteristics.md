@@ -1,6 +1,6 @@
 # Physical Characteristics
 
-This section provides a foundational model of NAND flash memory, covering its fundamental physical storage principles, hierarchical architectural organization, and internal block diagram components.
+This section outlines the physical characteristics of NAND flash memory, covering its fundamental storage cell principles, hierarchical array organization, and internal hardware block components.
 
 ## Physical Structure
 
