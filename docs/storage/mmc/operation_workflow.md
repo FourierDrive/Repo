@@ -104,10 +104,22 @@ The eMMC standard defines five system operation modes, encompassing both the hos
 After power-on, the host resets or boots all devices, identifies them, and assigns relative card addresses. This entire process uses only the command line for transmission, with a default clock frequency f<sub>od</sub> of 0 ~ 400 kHz. After power-up or hot insertion, the device enters the **pre-idle state**, and the host starts the clock to send the initialization sequence on the CMD line, ensuring the sequence length covers the required supply-ramp-up-time, boot period, at least 74 clock cycles, or 1 ms.
 
 * If the device supports boot mode and its `BOOT_PARTITION_ENABLE` bit is set, the device moves to the **pre-boot state**. Upon receiving the boot initiation sequence (keeping the CMD line low for at least 74 clock cycles or issuing `CMD0` with argument `0xFFFFFFFA`), the device executes the boot operation, streams data from the boot partition to the host via the data lines, and then enters the **idle state**.
-* If the boot sequence is not triggered or the boot partition is disabled, the device moves immediately to the **idle state** post-power-on. While in the **idle state**, the device ignores all bus transactions until `CMD1` is received. 
+* If the boot sequence is not triggered or the boot partition is disabled, the device moves immediately to the **idle state** post-power-on. While in the **idle state**, the device ignores all bus transactions until `CMD1` is received.
+
+![CMD0](./assets/cmd0.png)
+
 * The host shall continuously send the synchronization command `CMD1` for up to 1 second to negotiate the operating voltage range and poll the device until its power-up status bit is `1`, indicating startup is complete. If it times out without a valid response, the host closes the bus, causing the device to enter the **inactive state**. When the response `R3` indicates the device is ready, it enters the **ready state**.
+
+![CMD1](./assets/cmd1.png)
+
 * Once startup is complete, the host sends command `CMD2` to obtain the device-unique card identification (CID) via an `R2` response. Unidentified devices compare their CID in real-time, non-matching devices stop sending and remain in the **ready state**, while matching devices enter the **identification state**.
+
+![CMD2](./assets/cmd2.png)
+
 * Afterwards, the host sends command `CMD3` to assign a relative card address (RCA) to the matched device. The RCA is shorter than the CID, making it easier for subsequent addressing in **transfer mode**. Once the RCA is received, the device enters the **stand-by state**, no longer responds to identification flow commands, and switches its output mode from open-drain to push-pull.
+
+![CMD3](./assets/cmd3.png)
+
 * The host repeatedly sends commands `CMD2` and `CMD3` to identify all devices on the bus.
 
 ## Data Transfer
@@ -116,11 +128,34 @@ Data read and write operations can only be performed when the device is in the *
 
 * While in the **stand-by state**, the host can send command `CMD40` to make the device enter **interrupt mode**. When the device receives an internal interrupt event, it returns a response to the host, then switches to **data transfer mode**, awaiting subsequent data read/write commands from the host.
 * While in the **stand-by state**, the host can send command `CMD5` to put the device into a low-power **sleep state**. Sending command `CMD5` can similarly cause the device to exit the **sleep state**.
+
+![CMD5 Sleep](./assets/cmd5_sleep.png)
+
+![CMD5 Sleep](./assets/cmd5_wakeup.png)
+
 * While in the **stand-by state**, the host can send command `CMD4` to configure the device's DSR register.
 * Before acquiring the contents of the device's CSD register, the clock frequency remains at f<sub>od</sub>. The host can send command `CMD9` and wait for the device to reply with response `R2` to obtain the CSD register contents.
+
+![CMD9](./assets/cmd9.png)
+
 * While in the **stand-by state**, the host can send command `CMD7` to select or deselect a designated device. Devices cannot perform data communication while in the **stand-by state** because multiple devices on the bus may be in **stand-by**, a target device must be selected via its relative card address to enter the **transfer state** before data communication can occur.
+
+![CMD7 R6](./assets/cmd7_r6.png)
+
+![CMD7](./assets/cmd7.png)
+
 * If the version indicated in the returned CSD register contents is greater than 4.0, it denotes a high-speed device supporting commands to operate the EXT_CSD register. The host can then send command `CMD8` to retrieve the EXT_CSD register contents.
+
+![CMD8](./assets/cmd8.png)
+
+![EXT_CSD](./assets/ext_csd.png)
+
 * While in the **transfer state**, the host can send command `CMD6` to configure device attributes such as bus width (EXT_CSD reg offset: `0xB7`) and high-speed interface (EXT_CSD reg offset: `0xB9`).
+
+![CMD6 Bus Width](./assets/cmd6_bus_width.png)
+
+![CMD6 HS](./assets/cmd6_hs.png)
+
 * Data communication in **data transfer mode** is conducted point-to-point via addressing commands between the host and the selected device. In the **transfer state**, the host can use block read, block write, and erase commands to perform read/write and erase operations. Specific commands correspond to their respective command categories: block-oriented read commands (class 2), block-oriented write commands (class 4), and erase commands (class 5).
 * During transmission, the host can send command `CMD12` to interrupt ongoing data communication, returning the device to the **transfer state**. Commands `CMD0` and `CMD15` will abort any data programming operations and return the device to the **device identification mode**, which may also cause device data corruption.
 * The speed at which a device writes to flash is typically lower than the host's data transmission speed. Before data is written to the flash, it is first written to the device buffer. When the buffer is full, the device continuously pulls data line `DATA0` low as a busy signal. Upon receiving the busy signal, the host pauses sending data, resuming transmission only after the device finishes processing the data and releases the busy signal.
