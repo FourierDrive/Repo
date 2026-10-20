@@ -20,7 +20,7 @@ NAND flash is highly susceptible to read/write disturb noise and charge leakage,
 
 ## Error Correction Code (ECC)
 
-To mitigate bit-flips and maintain high data integrity, NAND Flash architectures rely heavily on hardware-based error correction codes (such as BCH or LDPC).
+To mitigate bit-flips and maintain high data integrity, NAND flash architectures rely heavily on hardware-based error correction codes (such as BCH or LDPC).
 
 * **Internal ECC Logic**: The internal ECC logic can detect 2-bit errors and correct 1-bit errors in each ECC segment. An ECC segment is composed of a main area (128 bytes) and a spare area (4 bytes).
 * **Operation & Verification**: During a program operation, an ECC code is calculated and stored in the additional spare area. During a read operation, after the data transfer time (`tRD_ECC`) is completed, a Get Feature command must be issued to check the ECC status bits.
