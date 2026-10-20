@@ -4,7 +4,7 @@ This section outlines the physical pin configurations, interface definitions, an
 
 ## Interface Definitions
 
-The pin definitions and signal directions defined below are viewed from the NAND Flash device's perspective. The bus includes a clock line, chip select, and serial data/IO lines, with optional hardware protection and strobe signals.
+The pin definitions and signal directions defined below are viewed from the NAND flash device's perspective. The bus includes a clock line, chip select, and serial data/IO lines, with optional hardware protection and strobe signals.
 
 | Name | Type* | Description |
 | :--- | :--- | :--- |
@@ -16,7 +16,7 @@ The pin definitions and signal directions defined below are viewed from the NAND
 | **SCLK / CLK** | I | Serial Clock input |
 | **VCC** | S | Power Supply |
 | **VSS / GND** | S | Ground |
-| **NC** | - | Not Connect |
+| **NC** | NC | Not Connect |
 | **DQS** | O | Data Strobe Signal Output (only for BGA24) |
 
 *NOTE: I: input; O: output; I/O: bidirectional; S: power supply; NC: not connected.*
