@@ -15,7 +15,7 @@ Data is stored inside flash memory cells in the form of electrical charge. The a
 
 ## Storage Organization
 
-The hierarchical structure of NAND Flash typically follows: `Nand` → `Chip/Die` → `Plane` → `Block` → `Page + OOB`. 
+The hierarchical structure of NAND flash typically follows: `Nand` → `Chip/Die` → `Plane` → `Block` → `Page + OOB`. 
 
 ![Array Organization](./assets/array_organization.png)
 
@@ -24,6 +24,7 @@ The hierarchical structure of NAND Flash typically follows: `Nand` → `Chip/Die
 * **Block**: The largest local architectural organization and the minimum unit for erasure operations (erasing resets the block to an all-0xFF state, failure to erase marks it as a bad block). This consists of multiple pages (e.g., up to 512KB in NAND).
 * **Page**: The smallest discrete unit for program and read operations. This is the basic grid allocation where data can be written or loaded into the internal data buffer or cache. Common hardware page boundaries range from 2KB to 4KB in advanced NAND flash.
 * **Out-of-Band (OOB) or Spare Area**: Also known as the idle area or redundant area, it is a dedicated metadata storage region physically associated with every page in a NAND flash array. It typically provides 16 to 128 bytes per page for system-level information, such as ECC syndrome bits, logical-to-physical block mapping, and factory-set bad block markers (BBMs). This region is accessed by extending the column address beyond the main page boundary.
+* **Data Buffer / Cache**: Volatile SRAM cache residing directly on the flash chip. This is the static memory workbench physically located on the external storage silicon. It temporarily buffers page-sized data during random load programs or page reads before data is committed to the physical floating-gate cells.
 
 ![Address Mapping](./assets/address_mapping.png)
 
