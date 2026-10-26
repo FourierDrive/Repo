@@ -11,28 +11,19 @@ Unlike NAND flash—where cells are wired in series strings—NOR flash cells ar
 * **Program (Writing)**: Typically utilizes hot-electron injection or Fowler-Nordheim tunneling to trap electrons in the floating gate, raising the threshold voltage to represent a logical `0`.
 * **Erase**: Uses Fowler-Nordheim tunneling to remove electrons from the floating gate, resetting the cell state to a logical `1` (all-0xFF equivalent when read as bytes).
 
-![Physical Structure](./assets/physical_structure.png)
-
 ## Storage Organization
 
 The hierarchical architecture of NOR Flash is organized from storage blocks down to individual addressable units: `NOR Device` → `Sector / Block` → `Page` → `Byte / Word`.
 
-![Array Organization](./assets/array_organization.png)
-
 * **Sector / Block**: The minimum erasable unit in NOR flash. Sectors are often symmetrically or asymmetrically divided (e.g., uniform 4KB sectors for parameter storage combined with 64KB/256KB blocks for application code).
 * **Page**: The basic unit for programming data into the array (commonly 256 bytes). Unlike NAND, NOR flash supports random byte/word reads directly without requiring full-page buffer loading.
 * **Byte / Word Addressing**: The fundamental access granularity. Every individual byte or 16-bit word inside the memory array possesses a unique physical address, enabling direct processor fetching.
-
-![Address Mapping](./assets/address_mapping.png)
-
 * **Row Address**: Selects the specific word line corresponding to the target sector and page within the memory matrix.
 * **Column Address**: Selects the specific byte or word offset along the bit line, allowing precise random access.
 
 ## Block Diagram
 
 Based on the hardware block diagram, a serial or parallel NOR flash device integrates several core functional blocks to support random access and high-speed retrieval.
-
-![Block Diagram](./assets/block_diagram.png)
 
 * **NOR Flash Array**: Parallel cell configuration optimized for rapid read operations and direct instruction execution without high latency.
 * **Row and Column Decoders**: High-precision decoding logic that translates incoming address inputs into precise word-line and bit-line selections for random access.
