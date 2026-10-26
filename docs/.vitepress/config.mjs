@@ -7,6 +7,47 @@ export default {
       { text: 'Home', link: '/' },
     ],
     sidebar: {
+      '/connectivity/': [
+        {
+          text: 'Connectivity',
+          items: [
+            {
+              text: 'UART',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/connectivity/uart/overview' },
+              ]
+            },
+            {
+              text: 'I2C',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/connectivity/i2c/overview' },
+              ]
+            },
+            {
+              text: 'SPI',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/connectivity/spi/overview' },
+              ]
+            },
+            {
+              text: 'I3C',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/connectivity/i3c/overview' },
+              ]
+            },
+            {
+              text: 'usb',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/connectivity/usb/overview' },
+              ]
+            },
+        }
+      ],
       '/storage/': [
         {
           text: 'Storage',
