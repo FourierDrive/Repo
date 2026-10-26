@@ -1,5 +1,0 @@
-next: false
-
-* NOR Flash: Characterized by parallel cell connections. It behaves like standard ROM, allowing byte-addressable random reads with zero latency. This unique property enables eXecute In Place (XIP), which allows the MCU to run firmware code directly from the Flash without copying it to RAM first.
-
-
