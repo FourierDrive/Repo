@@ -7,9 +7,10 @@ export default {
       { text: 'Home', link: '/' },
     ],
     sidebar: {
-      '/connectivity/': [
+      '/': [
         {
           text: 'Connectivity',
+          collapsed: true,
           items: [
             {
               text: 'UART',
@@ -45,13 +46,12 @@ export default {
               items: [
                 { text: 'Overview', link: '/connectivity/usb/overview' },
               ]
-            },
+            }
           ]
-        }
-      ],
-      '/storage/': [
+        },
         {
           text: 'Storage',
+          collapsed: true,
           items: [
             {
               text: 'NAND Flash',
@@ -75,7 +75,7 @@ export default {
                 { text: 'Overview', link: '/storage/norflash/overview' },
                 { text: 'System Model', link: '/storage/norflash/system_model' },
                 { text: 'Physical Characteristics', link: '/storage/norflash/physical_characteristics' },
-                { text: 'Electrical Characteristics', link: '/storage/norflash/electrical_characteristics' },
+                { text: 'Electrical Characteristics', link: '/storage/norflash/electrical_characteristics' }
               ]
             },
             {
@@ -88,7 +88,7 @@ export default {
                 { text: 'Electrical Characteristics', link: '/storage/mmc/electrical_characteristics' },
                 { text: 'Bus Protocol', link: '/storage/mmc/bus_protocol' },
                 { text: 'Common Commands', link: '/storage/mmc/common_commands' },
-                { text: 'Common Responses', link: '/storage/mmc/common_responses' },                
+                { text: 'Common Responses', link: '/storage/mmc/common_responses' },              
                 { text: 'Operation Workflow', link: '/storage/mmc/operation_workflow' },
                 { text: 'Sampling Tuning Mechanism', link: '/storage/mmc/sampling_tuning_mechanism' }
               ]
@@ -103,7 +103,7 @@ export default {
                 { text: 'Electrical Characteristics', link: '/storage/sd/electrical_characteristics' },
                 { text: 'Bus Protocol', link: '/storage/sd/bus_protocol' },
                 { text: 'Common Commands', link: '/storage/sd/common_commands' },
-                { text: 'Common Responses', link: '/storage/sd/common_responses' },                
+                { text: 'Common Responses', link: '/storage/sd/common_responses' },              
                 { text: 'Memory Card Operation Workflow', link: '/storage/sd/memory_card_operation_workflow' },
                 { text: 'I/O Card Operation Workflow', link: '/storage/sd/io_card_operation_workflow' }
               ]
