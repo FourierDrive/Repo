@@ -30,7 +30,10 @@ export default {
               text: 'NOR Flash',
               collapsed: true,
               items: [
-                { text: 'Terminology', link: '/storage/norflash/terminology' }
+                { text: 'Overview', link: '/storage/norflash/overview' },
+                { text: 'System Model', link: '/storage/norflash/system_model' },
+                { text: 'Physical Characteristics', link: '/storage/norflash/physical_characteristics' },
+                { text: 'Electrical Characteristics', link: '/storage/norflash/electrical_characteristics' },
               ]
             },
             {
