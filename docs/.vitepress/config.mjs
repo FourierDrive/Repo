@@ -46,6 +46,7 @@ export default {
                 { text: 'Overview', link: '/connectivity/usb/overview' },
               ]
             },
+          ]
         }
       ],
       '/storage/': [
