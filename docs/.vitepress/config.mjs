@@ -9,42 +9,281 @@ export default {
     sidebar: {
       '/': [
         {
+          text: 'Architecture',
+          collapsed: true,
+          items: [
+            {
+              text: 'ARM',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/architecture/arm/overview' },
+              ]
+            },
+            {
+              text: 'RISC-V',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/architecture/riscv/overview' },
+              ]
+            },
+            {
+              text: 'XTENSA',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/architecture/xtensa/overview' },
+              ]
+            },
+            {
+              text: 'AVR',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/architecture/avr/overview' },
+              ]
+            },
+            {
+              text: 'MCS-51',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/architecture/mcs51/overview' },
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Kernel',
+          collapsed: true,
+          items: [
+            {
+              text: 'Boot',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/boot/overview' },
+              ]
+            },
+            {
+              text: 'Scheduling',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/sched/overview' },
+              ]
+            },
+            {
+              text: 'Synchronization',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/sync/overview' },
+              ]
+            },
+            {
+              text: 'Interrupt Handling',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/ih/overview' },
+              ]
+            },
+            {
+              text: 'Power Management',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/pm/overview' },
+              ]
+            },
+            {
+              text: 'Memory Management',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/mm/overview' },
+              ]
+            },
+            {
+              text: 'System Call',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/sc/overview' },
+              ]
+            },
+            {
+              text: 'Multi-Processing',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/mp/overview' },
+              ]
+            },
+            {
+              text: 'File System',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/kernel/fs/overview' },
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Chip',
+          collapsed: true,
+          items: [
+            {
+              text: 'Clock Tree',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/chip/ct/overview' },
+              ]
+            },
+            {
+              text: 'Power System',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/chip/ps/overview' },
+              ]
+            },
+            {
+              text: 'Memory System',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/chip/ms/overview' },
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Processor',
+          collapsed: true,
+          items: [
+            {
+              text: 'Core',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/processor/core/overview' },
+              ]
+            },
+            {
+              text: 'Matrix',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/processor/matrix/overview' },
+              ]
+            },
+            {
+              text: 'Interrupt',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/processor/interrupt/overview' },
+              ]
+            },
+            {
+              text: 'Direct Memory Access',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/processor/dma/overview' },
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Analog',
+          collapsed: true,
+          items: [
+            {
+              text: 'Analog-to-Digital Converter',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/analog/adc/overview' },
+              ]
+            },
+            {
+              text: 'Digital-to-Analog Converter',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/analog/dac/overview' },
+              ]
+            },
+            {
+              text: 'Physical Layers',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/analog/phy/overview' },
+              ]
+            }
+          ]
+        },
+        {
           text: 'Connectivity',
           collapsed: true,
           items: [
             {
-              text: 'UART',
+              text: 'Universal Asynchronous Receiver-Transmitter',
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/connectivity/uart/overview' },
               ]
             },
             {
-              text: 'I2C',
+              text: 'Inter-Integrated Circuit',
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/connectivity/i2c/overview' },
               ]
             },
             {
-              text: 'SPI',
+              text: 'Serial Peripheral Interface',
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/connectivity/spi/overview' },
               ]
             },
             {
-              text: 'I3C',
+              text: 'Improved Inter-Integrated Circuit',
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/connectivity/i3c/overview' },
               ]
             },
             {
-              text: 'usb',
+              text: 'Universal Serial Bus',
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/connectivity/usb/overview' },
+              ]
+            },
+            {
+              text: 'Controller Area Network',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/connectivity/can/overview' },
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Imaging',
+          collapsed: true,
+          items: [
+            {
+              text: 'Camera Serial Interface',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/imaging/csi/overview' },
+              ]
+            },
+            {
+              text: 'Display Serial Interface',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/imaging/dsi/overview' },
+              ]
+            },
+            {
+              text: 'Quad Serial Peripheral Interface',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/imaging/qspi/overview' },
+              ]
+            },
+            {
+              text: 'Graphics Processing Unit',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/imaging/gpu/overview' },
               ]
             }
           ]
@@ -110,6 +349,33 @@ export default {
             }
           ]
         }
+        {
+          text: 'Timing',
+          collapsed: true,
+          items: [
+            {
+              text: 'Pulse Width Modulation',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/timing/pwm/overview' },
+              ]
+            },
+            {
+              text: 'Real-Time Clock',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/timing/rtc/overview' },
+              ]
+            },
+            {
+              text: 'Watchdog Timer',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/timing/wdt/overview' },
+              ]
+            }
+          ]
+        },
       ]
     }
   }
