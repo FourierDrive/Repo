@@ -99,7 +99,7 @@ export default {
               text: 'System Call',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/kernel/sc/overview' },
+                { text: 'Overview', link: '/kernel/syscall/overview' },
               ]
             },
             {
@@ -348,7 +348,7 @@ export default {
               ]
             }
           ]
-        }
+        },
         {
           text: 'Timing',
           collapsed: true,
@@ -375,7 +375,7 @@ export default {
               ]
             }
           ]
-        },
+        }
       ]
     }
   }
