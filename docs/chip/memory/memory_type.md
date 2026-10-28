@@ -3,7 +3,8 @@
 Memory type defines the fundamental access behavior of a memory region, including ordering rules, speculation behavior, buffering capability, and cache participation. Different memory regions require different behaviors to balance performance and correctness.
 
 ## Normal
-* Used for most ROM and RAM regions. All executable code must reside in normal memory regions. Normal memory is optimized for performance and allows the processor and memory system to apply various optimizations.
+Used for most ROM and RAM regions. All executable code must reside in normal memory regions. Normal memory is optimized for performance and allows the processor and memory system to apply various optimizations.
+
 * Repeated reads and writes are allowed.
 * Accesses may be internally reordered.
 * Speculative reads and instruction prefetch are allowed.
@@ -12,14 +13,16 @@ Memory type defines the fundamental access behavior of a memory region, includin
 * Normal memory is typically cacheable and bufferable, providing the highest performance but without strict ordering guarantees.
 
 ## Device
-* Intended for peripherals and memory-mapped I/O regions. Device memory preserves access ordering, access size, and access count to ensure correct peripheral behavior.
+Intended for peripherals and memory-mapped I/O regions. Device memory preserves access ordering, access size, and access count to ensure correct peripheral behavior.
+
 * Speculative access and access merging are not allowed.
 * Accesses are typically non-cacheable.
 * Unaligned accesses are generally not permitted.
 * Limited write buffering may still be allowed, enabling the processor to continue execution before the peripheral transaction fully completes.
 
 ## Strongly-ordered
-* Used when strict synchronization and completion ordering are required.
+Used when strict synchronization and completion ordering are required.
+
 * The processor must wait for each access to fully complete before continuing execution.
 * Write buffering is not permitted.
 * Accesses cannot be reordered, merged, or speculated.
