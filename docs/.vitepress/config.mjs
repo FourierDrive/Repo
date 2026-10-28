@@ -136,7 +136,11 @@ export default {
               text: 'Power',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/chip/ps/overview' },
+                { text: 'Overview', link: '/chip/power/overview' },
+                { text: 'Power Domains', link: '/chip/power/power_domains' },
+                { text: 'Power Conversion', link: '/chip/power/power_conversion' },
+                { text: 'Power Consumption', link: '/chip/power/power_consumption' },
+                { text: 'Power Metrics', link: '/chip/power/power_metrics' }
               ]
             },
             {
