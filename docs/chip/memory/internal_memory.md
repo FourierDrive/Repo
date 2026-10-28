@@ -1,8 +1,6 @@
-# Buffers and Tightly Coupled Memory (TCM)
+# Internal Memory
 
 This section outlines hardware-managed performance components including write buffers, fetch buffers, and software-visible tightly coupled memories.
-
-# Buffers and TCM
 
 ## Write Buffer
 
