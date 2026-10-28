@@ -1,4 +1,4 @@
-# Internal Memory
+# Internal Memories
 
 This section outlines hardware-managed performance components including write buffers, fetch buffers, and software-visible tightly coupled memories.
 
