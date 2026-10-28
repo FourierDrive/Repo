@@ -123,14 +123,17 @@ export default {
           collapsed: true,
           items: [
             {
-              text: 'Clock Tree',
+              text: 'Clock',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/chip/ct/overview' },
+                { text: 'Overview', link: '/chip/clock/overview' },
+                { text: 'Clock Source', link: '/chip/clock/clock_source' },
+                { text: 'Clock Distribution', link: '/chip/clock/clock_distribution' },
+                { text: 'Clock Metrics', link: '/chip/clock/clock_metrics' }
               ]
             },
             {
-              text: 'Power System',
+              text: 'Power',
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/chip/ps/overview' },
