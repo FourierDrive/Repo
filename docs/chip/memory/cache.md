@@ -1,7 +1,5 @@
 # Cache
 
-## Cache
-
 A hardware-managed memory structure that improves average system performance by exploiting spatial and temporal locality in program access patterns.
 
 Cache stores recently accessed instructions or data in small high-speed SRAM structures located close to the processor core. When the processor accesses an address, the cache controller checks whether the corresponding cache line is already present. If the access hits in the cache, data can be returned with much lower latency than external memory access.
