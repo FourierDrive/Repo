@@ -1,6 +1,6 @@
 # Integrated Memories
 
-This section outlines hardware-managed performance components including write buffers, fetch buffers, and software-visible tightly coupled memories.
+Write buffers, fetch buffers, and tightly coupled memories (TCM) form the core hardware-managed performance components of modern processors.
 
 ## Write Buffer
 
