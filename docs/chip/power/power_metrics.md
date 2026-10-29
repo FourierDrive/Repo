@@ -1,9 +1,5 @@
 # Power Metrics
 
-This section outlines the critical evaluation metrics and parameters that determine power rail quality, voltage stability, and overall system energy efficiency under different operating conditions.
-
-## Power Quality Metrics
-
 In a power management system, the quality of a power rail is evaluated by several key parameters, which together determine voltage accuracy, stability, and efficiency:
 
 * **Bandgap (Reference)**: Provides a stable reference voltage for the entire power system (e.g., LDO, DCDC, ADC), and its accuracy directly affects overall voltage precision.
