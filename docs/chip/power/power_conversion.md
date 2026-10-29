@@ -1,4 +1,5 @@
 ## Power Conversion
+
 In a power management system, different voltage levels are required for various modules. Power conversion circuits are used to generate these voltages efficiently, while additional components like level shifters ensure safe communication between domains.
 
 * Low-Dropout Regulator (LDO)
