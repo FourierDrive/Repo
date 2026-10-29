@@ -6,12 +6,16 @@ Compared with the Memory Management Unit (MMU) in the Virtual Memory System Arch
 
 The MPU is an on-core hardware module that configures memory regions defined by base address and power-of-two size (typically 32B to 4GB, aligned to region size). The number of regions is implementation-dependent, commonly 8, 12, or 16. Regions may overlap, and the highest-priority region determines the effective attributes and permissions.
 
+## Features
+
 MPU regions can define memory type, access permission, cache policy, shareability, and execution rights. Subregions may also be used in some implementations to refine region granularity. For each memory access, the MPU checks the address against region definitions and the current privilege level. If access is not permitted, a memory protection exception is generated. It improves system robustness and security in several practical ways:
 * Preventing application tasks from corrupting stack or data memory used by other tasks or the OS kernel.
 * Preventing unprivileged tasks from accessing critical peripherals that affect system reliability or security.
 * Marking SRAM or RAM regions as Execute Never (XN) to prevent code injection and execution from data memory.
 
 MPU also applies to memory-mapped peripherals, allowing the system to restrict hardware access to privileged software and improve driver isolation.
+
+## Maintenance
 
 If the MPU is disabled, the processor uses the default memory map and default memory attributes defined by the architecture.
 
