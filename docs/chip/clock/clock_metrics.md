@@ -1,10 +1,6 @@
 # Clock Metrics
 
-This section outlines the critical quality metrics and parameters that determine the stability, precision, and overall reliability of the system timing.
-
-## Quality Parameters
-
-Clock quality directly dictates the stability and reliability of synchronous operations across the system, characterized by several key parameters:
+Clock quality determines the stability and reliability of timing across the system.
 
 * **Jitter**: Short-term variation in clock edges, which can impact high-speed communication and analog performance.
 * **Accuracy**: Long-term deviation from the nominal frequency, mainly determined by the reference source such as crystal or oscillator.
