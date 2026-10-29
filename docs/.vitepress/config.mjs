@@ -126,7 +126,6 @@ export default {
               text: 'Clock',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/chip/clock/overview' },
                 { text: 'Clock Source', link: '/chip/clock/clock_source' },
                 { text: 'Clock Distribution', link: '/chip/clock/clock_distribution' },
                 { text: 'Clock Metrics', link: '/chip/clock/clock_metrics' }
@@ -136,7 +135,6 @@ export default {
               text: 'Power',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/chip/power/overview' },
                 { text: 'Power Domains', link: '/chip/power/power_domains' },
                 { text: 'Power Conversion', link: '/chip/power/power_conversion' },
                 { text: 'Power Consumption', link: '/chip/power/power_consumption' },
@@ -144,10 +142,15 @@ export default {
               ]
             },
             {
-              text: 'Memory System',
+              text: 'Memory',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/chip/ms/overview' },
+                { text: 'Memory Region', link: '/chip/memory/memory_region' },
+                { text: 'Memory Type', link: '/chip/memory/memory_type' },
+                { text: 'Memory Attributes', link: '/chip/memory/memory_attributes' },
+                { text: 'Memory Protection Unit', link: '/chip/memory/mpu' },
+                { text: 'Integrated Memories', link: '/chip/memory/integrated_memories' },
+                { text: 'Cache', link: '/chip/memory/cache' }
               ]
             }
           ]
