@@ -1,18 +1,14 @@
 # Power Domains
 
-This section outlines the division of a system power tree into multiple voltage domains, detailing the specific supply rails and their corresponding architectural schematic.
-
-## Voltage Domains
-
 A system power tree is typically divided into multiple voltage domains, each serving different components:
 
 * **Vsys (Main Supply, 3.8 V)**: The primary input power (e.g., battery), distributed to all sub-modules.
 * **Vmem (1.8 V)**: Supplies memory-related and IO modules (GPIO, Flash, PSRAM, Codec, etc.).
 * **Vana (1.3 V)**: Supplies analog components (crystal, RF, Bluetooth, etc.), may require higher voltage under high-performance scenarios (e.g., RF TX).
 * **Vcore (Digital Core, 0.6 V ~ 1.0 V)**:
-    * **Vcore_m (Memory Array)**: Supplies RAM or memory-related logic.
-    * **Vcore_l (Logic Cell)**: Supplies core and logic.
-    * Voltage typically scales with system frequency.
+  * **Vcore_m (Memory Array)**: Supplies RAM or memory-related logic.
+  * **Vcore_l (Logic Cell)**: Supplies core and logic.
+  * Voltage typically scales with system frequency.
 
 ## Power Topology
 
