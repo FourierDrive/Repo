@@ -1,9 +1,5 @@
 # Power Consumption
 
-This section outlines the primary sources of energy consumption across different hardware blocks and the architectural strategies used to optimize power efficiency in embedded systems.
-
-## Power Consumption Sources
-
 Different parts of a system consume power based on the area they occupy and their activity levels:
 
 * **Processor**: Consumes relatively low power, as it only takes up a small part of the system.
