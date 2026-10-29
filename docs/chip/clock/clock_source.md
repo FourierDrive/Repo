@@ -1,10 +1,6 @@
 # Clock Source
 
-This section outlines the various types of clock sources used to provide the primary timing references for digital circuits, covering both external components and internal generator circuits.
-
-## Types of Clock Sources
-
-Clock sources supply the fundamental timing references required by the system, ranging from high-precision external references to flexible internal generators:
+Clock sources provide the timing reference for digital circuits. They typically include both external crystals/oscillators and internal generated clocks:
 
 * **Crystal (Passive)**: A piezoelectric component that resonates at a fixed frequency. Requires an external oscillator circuit to produce a usable clock signal.
 * **Oscillator (Active)**: Self-contained, includes a crystal and circuitry, outputs a ready-to-use clock.
