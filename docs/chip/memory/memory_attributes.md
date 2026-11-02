@@ -29,7 +29,9 @@ Defines which software contexts are allowed to access a memory region.
 * **Executable**: Allows instruction fetches from the region.
 * **Execute Never (XN)**: Prevents instruction execution from the region. A fault exception is generated only on execution of an instruction executed from an XN region.
 
-The combination of Bufferable and Cacheable attributes determines the effective memory access behavior seen by the processor and memory system. Different combinations are commonly used to implement strongly-ordered, device, or cacheable normal memory regions.
+## Access Behaviors
+
+The combination of bufferable and cacheable attributes determines the effective memory access behavior seen by the processor and memory system. Different combinations are commonly used to implement strongly-ordered, device, or cacheable normal memory regions.
 
 | Bufferable | Cacheable | Effective Memory Behavior |
 |------------|------------|----------------------------|
