@@ -29,6 +29,8 @@ Used when strict synchronization and completion ordering are required.
 * All accesses must be aligned.
 * Strongly-ordered memory provides the strictest ordering guarantees but also introduces the highest access latency.
 
+## Access Behaviors
+
 Modern processors may reorder explicit memory accesses internally to improve performance and reduce power consumption. As a result, the completion order of memory transactions observed by the memory system is not always identical to the program execution order.
 
 In most cases this behavior is transparent to software because the final execution result remains unchanged. Enforcing strict ordering on every access would significantly limit hardware optimizations such as buffering, pipelining, speculative execution, and out-of-order completion.
