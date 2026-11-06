@@ -24,13 +24,18 @@ After the card is powered on, the host resets all cards, confirms their voltage 
 
 * After power-on, all cards enter the **idle state**, at which point the card command line is in input mode, waiting for the transmission of the next command.
 * The host first sends command `CMD5` with a parameter of `0`. If no response `R4` is returned, or if the number of functions is `0` and the memory present bit is set, it proceeds with memory card initialization.
-
-![Device Identification Timing](./assets/device_dentification_timing.png)
-
 * Before receiving command `CMD5` with parameters, the I/O area is in an **inactive state**. If the host supports UHS-I, it will continuously send command `CMD5` within one second to request switching the signal voltage to 1.8 V. If the card supports UHS-I and the current signal voltage is 3.3 V, the card switches the voltage, sets the corresponding bit, and returns response `R4`. If it is already at 1.8 V, it maintains the voltage, does not set the corresponding bit, and returns response `R4`. The host obtains information such as card-supported functions based on response `R4`.
+
+![CMD5_R4](./assets/cmd5_r4.png)
+
 * If the host fails to receive a response within the timeout period, it should stop sending. Incompatible cards are placed in the **inactive state**.
 * After the I/O portion is initialized, if the card accepts the voltage switch, the host sends command `CMD11` to switch the signal voltage to 1.8 V.
+
+![CMD11_R1](./assets/cmd11_r1.png)
+
 * The host sends command `CMD3` to request the card to issue a new Relative Card Address (RCA) via response `R6`. It is shorter than the Card Identification (CID), making addressing easier in subsequent transfer modes. Once the RCA is received, the card enters the **stand-by state**. During this period, the host can continue sending command `CMD3` to request updated relative card addresses.
+
+![CMD3_R6](./assets/cmd3_r6.png)
 
 ## Data Transfer
 
@@ -38,6 +43,9 @@ I/O read/write operations and register access can only be performed when the SDI
 
 * Command `CMD7` is used to select and deselect specified cards. A card in the **stand-by state** cannot yet perform I/O communication. A target device with a specific relative card address must be selected to enter the **transfer state** to enable communication.
 * Command `CMD52` is used to read or write a single byte to a specific register across any function space, commonly used for configuring device parameters or checking status flags, the host performs essential configuration tasks such as reading the card version, enabling specific I/O functions, configuring interrupts, and setting up data bus widths and high-speed operation modes.
+
+![CMD52_R5](./assets/cmd52_r5.png)
+
 * Command `CMD53` is used to read or write multiple bytes or blocks of data to a register address, supporting byte/block modes and fixed or incrementing address operational codes for high-throughput data transfer.
 * During write operations, block transfers, or specific register updates that require internal card processing, the card may pull the **DAT0 line low** to signal a busy state. The host must continuously monitor the DAT0 line until it returns high to ensure the card has completed its operation before issuing the next command.
 
