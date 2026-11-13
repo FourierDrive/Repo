@@ -26,7 +26,7 @@ In systems using DMA, multiple bus masters, or shared memory between tasks, cach
 * **Set**: A group of cache lines sharing the same index across all ways.
 * **Valid Bit (V)**: Indicates whether a cache line contains valid data.
 * **Dirty Bit (D)**: Indicates whether cached data has been modified and differs from main memory.
-* **Cache Size**: The amount of data or instruction storage that can be held in the cache, excluding metadata such as tag storage and status bits (e.g., valid and dirty bits). Typical L1 cache sizes range from 4kB to 16kB or 32kB, allowing access within a single processor cycle at core frequencies of 1GHz or higher.
+* **Cache Size**: The amount of data or instruction storage that can be held in the cache, excluding metadata such as tag storage and status bits (e.g., valid and dirty bits).
 * **Cache Hit**: A condition where the selected cache set contains a valid cache line whose tag matches the tag portion of the requested memory address, allowing the data to be accessed directly from the cache.
 * **Cache Miss**: A condition where no valid cache line in the selected cache set matches the tag portion of the requested memory address, requiring the data to be fetched from main memory and filled into the cache.
 * **Hit Rate**: The ratio of cache hits to total memory access requests, representing cache effectiveness and performance.
